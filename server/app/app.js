@@ -3,9 +3,10 @@ const express = require('express');
 const init = (data) => {
     const app = express();
 
-    app.get('/', (req, res) => {
-        return res.send('Hello');
-    });
+    // TODO: Config application
+
+    // add routers
+    require('./routers').attachTo(app, data);
 
     return Promise.resolve(app);
 };
