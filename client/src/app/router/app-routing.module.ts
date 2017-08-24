@@ -6,7 +6,7 @@ import { RegisterComponent } from '../components/register/register.component';
 import { LoginComponent } from '../components/login/login.component';
 import { PageNotFoundComponent } from '../components/pageNotFound/pageNotFound.component';
 
-const appRoutes: Routes = [  
+const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
@@ -23,5 +23,5 @@ const appRoutes: Routes = [
     ]
 })
 export class AppRoutingModule {
-    
+
 }
