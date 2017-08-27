@@ -1,6 +1,6 @@
 const attachTo = (app, data) => {
     app.get('/', (req, res) => {
-        res.send('Routes work');
+        res.send('./../../../client/src/app/components/home/home.component.html');
     });
 };
 
