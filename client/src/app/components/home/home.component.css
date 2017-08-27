@@ -1,0 +1,13 @@
+.panel:hover {
+    box-shadow: 0px 0px 30px rgba(63, 156, 215, 0.20);
+}
+.panel-heading img{
+    width: 50%;
+}
+
+#brazil_pic{
+    width: 45.5%;
+}
+.remove_background{
+    mix-blend-mode: multiply;
+}

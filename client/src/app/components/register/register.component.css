@@ -1,0 +1,9 @@
+.form-horizontal{
+    margin: 20px;
+}
+legend{
+    border:none;
+}
+#regBtn{
+    width: 100%;
+}
