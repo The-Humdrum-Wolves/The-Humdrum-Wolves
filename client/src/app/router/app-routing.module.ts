@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from '../components/home/home.component';
-import { RegisterComponent } from '../components/register/register.component';
-import { LoginComponent } from '../components/login/login.component';
-import { PageNotFoundComponent } from '../components/pageNotFound/pageNotFound.component';
+import { RegisterComponent } from './../auth/register/register.component';
+import { LoginComponent } from './../auth/login/login.component';
+import { PageNotFoundComponent } from './../error404/pageNotFound/pageNotFound.component';
 import { RulesComponent } from './../components/rules/rules.component';
 import { RankingComponent } from './../components/ranking/ranking.component';
 import { TeamsComponent } from './../components/teams/teams.component';
