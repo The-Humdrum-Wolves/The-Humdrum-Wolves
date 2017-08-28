@@ -10,6 +10,8 @@ import { PageNotFoundComponent } from './components/pageNotFound/pageNotFound.co
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RulesComponent } from './components/rules/rules.component';
+import { RankingComponent } from './components/ranking/ranking.component';
+import { TeamsComponent } from './components/teams/teams.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { RulesComponent } from './components/rules/rules.component';
     LoginComponent,
     PageNotFoundComponent,
     RulesComponent,
+    RankingComponent,
+    TeamsComponent,
   ],
   imports: [
     BrowserModule,
