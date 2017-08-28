@@ -1,5 +1,6 @@
 .panel:hover {
     box-shadow: 0px 0px 30px rgba(63, 156, 215, 0.20);
+    cursor: pointer;
 }
 .panel-heading img{
     width: 50%;
