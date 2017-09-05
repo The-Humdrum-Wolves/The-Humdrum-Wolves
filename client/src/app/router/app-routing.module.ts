@@ -1,3 +1,4 @@
+import { SingleTeamComponent } from './../footballTeams/single-team/single-team.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -7,7 +8,7 @@ import { LoginComponent } from './../auth/login/login.component';
 import { PageNotFoundComponent } from './../error404/pageNotFound/pageNotFound.component';
 import { RulesComponent } from './../components/rules/rules.component';
 import { RankingComponent } from './../components/ranking/ranking.component';
-import { TeamsComponent } from './../components/teams/teams.component';
+import { TeamsComponent } from './../footballTeams/teams/teams.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -15,7 +16,8 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'rules', component: RulesComponent },
     { path: 'ranking', component: RankingComponent },
-    { path: 'teams', component: TeamsComponent },      
+    { path: 'teams', component: TeamsComponent },
+    { path: 'team/:id', component: SingleTeamComponent },    
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent },
   ];
