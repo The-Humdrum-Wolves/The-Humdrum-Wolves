@@ -1,24 +1,23 @@
 <div class="demo">
   <div class="container">
+    <button (click)="a()">Use this button to console log whole received object</button>
     <div class="row">
-      <div class="col-md-3 col-sm-6">
-        <div class="pricingTable">
-          <div class="pricingTable-header">
-            <!-- to do team picture -->
+      <div *ngFor="let team of teams; let i = index">
+        <a href="#/team/{{team.id}}" style="text-decoration: none; color: initial">
+          <div *ngIf="team.crestUrl !== null" class="col-md-3 col-sm-6">
+            <div class="pricingTable" style="height: 300px; cursor: pointer">
+              <div class="pricingTable-header">
+                <img [src]="team.crestUrl" width="92px" height="100" onError="this.src='./../../../assets/images/noImageAvailable.png'" />
+              </div>
+              <h3 class="heading">
+                {{team.name}}
+              </h3>
+            </div>
           </div>
-          <h3 class="heading">
-            <!-- to do team name -->
-          </h3>
-          <div class="pricing-content">
-            <ul>
-              <!-- to do info from http://api.football-data.org/v1/competitions/{id}/leagueTable -->
-              <!-- <li><a href="#">Best Players</a></li> OPTIONAL -> new page-->
-            </ul>
-          </div>
-        </div>
-      </div>
+        </a>
 
-      <div class="col-md-3 col-sm-6">
+      </div>
+      <!-- <div class="col-md-3 col-sm-6">
         <div class="pricingTable green">
           <div class="pricingTable-header">
             <i class="fa fa-briefcase"></i>
@@ -38,7 +37,7 @@
             <a href="#">sign up</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
