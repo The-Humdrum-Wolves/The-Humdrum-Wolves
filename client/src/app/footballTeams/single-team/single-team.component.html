@@ -1,0 +1,35 @@
+<button (click)="  a()">Use this button to console log whole received object</button>
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center text-danger">{{foundTeam.name}}</h1>
+    <img class="img-responsive center-block" src="{{foundTeam.crestUrl}}" width="20%" />
+    <hr />
+    <h3 class="text-center">Past Fixtures</h3>
+    <table class="table table-bordered">
+      <tbody *ngFor="let fixture of teamFixtures">
+        <tr *ngIf="fixture.status === 'FINISHED'">
+          <td>{{fixture.homeTeamName}}</td>
+          <td class="text-center">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</td>
+          <td>{{fixture.awayTeamName}}</td>
+          <td>{{fixture.date | date: 'medium'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <h3 class="text-center">Upcoming Fixtures</h3>
+    <table class="table table-bordered">
+      <tbody *ngFor="let fixture of teamFixtures">
+        <tr *ngIf="fixture.status === 'TIMED' || fixture.status === 'SCHEDULED'">
+            <td>{{fixture.homeTeamName}}</td>
+            <td class="text-center">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</td>
+            <td>{{fixture.awayTeamName}}</td>
+            <td>{{fixture.date | date: 'medium'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="#/teams" class="btn btn-warning btn-md pull-right">Go back to Popular teams page</a>
+</div>
+
