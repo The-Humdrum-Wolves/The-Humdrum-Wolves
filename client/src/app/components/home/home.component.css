@@ -12,3 +12,33 @@
 .remove_background{
     mix-blend-mode: multiply;
 }
+
+#myCarousel img{
+    height: 400px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    #myCarousel img{
+        height: auto;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1700px) {    
+    #myCarousel img{
+        height: auto;
+        width: 100%;
+    }
+}
+
+.carousel-caption h1{
+    font-size: 40px;
+    margin: 40px;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption h1{
+        font-size: initial;
+    }
+}

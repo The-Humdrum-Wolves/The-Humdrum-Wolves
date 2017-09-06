@@ -11,9 +11,11 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
+import { PlayersComponent } from './players/players.component';
+import { PlayComponent } from './play/play.component';
 
-import { TopTeamsService } from './services/top-teams.service';
-
+import { TopTeamsService } from './services/teams.service';
+import { PlayService } from './services/play.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { TopTeamsService } from './services/top-teams.service';
     HomeComponent,
     RulesComponent,
     RankingComponent,
+    PlayersComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ import { TopTeamsService } from './services/top-teams.service';
     HttpModule,
     FootballTeamsModule
   ],
-  providers: [TopTeamsService],
+  providers: [TopTeamsService, PlayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
