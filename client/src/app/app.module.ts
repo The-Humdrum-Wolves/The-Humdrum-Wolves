@@ -13,6 +13,7 @@ import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
 import { TopTeamsService } from './services/top-teams.service';
+import { LoadingBarComponent } from './loading-bar/loading-bar.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { TopTeamsService } from './services/top-teams.service';
     HomeComponent,
     RulesComponent,
     RankingComponent,
+    LoadingBarComponent,
   ],
   imports: [
     BrowserModule,
