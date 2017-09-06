@@ -47,13 +47,13 @@ export class ApiHelpers {
         return this.baseUrl + this.mainRoutes.competitions;
     }
 
-    static otherUrls(id?: number) {
+    static otherUrls(id: number) {
         if (id) {
             return {
                 oneFixture: this.baseUrl + this.mainRoutes.fixtures + `/${id}`,
                 allFixturesCertainTeam: this.baseUrl + this.mainRoutes.teams + `/${id}` + this.mainRoutes.fixtures,
                 oneTeam: this.baseUrl + this.mainRoutes.teams + `/${id}`,
-                allPlayersCertainTeam: this.baseUrl + this.mainRoutes.teams + `/${id}/players`,
+                allPlayersCertainTeam: this.baseUrl + this.mainRoutes.teams + `/${id}/players`
             }
         }
 
