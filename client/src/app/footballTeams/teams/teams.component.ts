@@ -1,5 +1,5 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { TopTeamsService } from './../../services/teams.service';
+import { TopTeamsService } from './../../services/top-teams.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
