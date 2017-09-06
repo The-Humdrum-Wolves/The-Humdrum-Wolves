@@ -2,8 +2,11 @@
 <div class="container">
   <h2 class="text-center">All Upcoming Fixtures</h2>
   <hr />
+  <div class="center">
+  <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
+  </div>
   <table class="table table-bordered">
-    <thead>
+    <thead [hidden]="loading">
       <tr>
         <th class="text-center">Date</th>
         <th class="text-center">Home Team</th>
