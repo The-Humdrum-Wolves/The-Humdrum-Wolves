@@ -1,3 +1,4 @@
+import { PlayComponent } from './../play/play.component';
 import { SingleTeamComponent } from './../footballTeams/single-team/single-team.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +17,8 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'rules', component: RulesComponent },
     { path: 'ranking', component: RankingComponent },
+    { path: 'play', component: PlayComponent },
+    
     { path: 'teams', component: TeamsComponent },
     { path: 'team/:id', component: SingleTeamComponent },    
     { path: '', redirectTo: '/home', pathMatch: 'full' },

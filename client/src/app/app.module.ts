@@ -1,3 +1,6 @@
+import { PlayService } from './services/play.service';
+import { PlayersComponent } from './players/players.component';
+import { PlayComponent } from './play/play.component';
 import { FootballTeamsModule } from './footballTeams/football-teams.module';
 import { HttpModule } from '@angular/http';
 import { Error404Module } from './error404/error404.module';
@@ -12,8 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
-import { TopTeamsService } from './services/top-teams.service';
-import { LoadingBarComponent } from './loading-bar/loading-bar.component';
+import { TopTeamsService } from './services/teams.service';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { LoadingBarComponent } from './loading-bar/loading-bar.component';
     HomeComponent,
     RulesComponent,
     RankingComponent,
-    LoadingBarComponent,
+    PlayComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { LoadingBarComponent } from './loading-bar/loading-bar.component';
     HttpModule,
     FootballTeamsModule
   ],
-  providers: [TopTeamsService],
+  providers: [TopTeamsService, PlayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
