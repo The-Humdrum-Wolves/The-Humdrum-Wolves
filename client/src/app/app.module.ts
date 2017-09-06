@@ -15,10 +15,8 @@ import { HomeComponent } from './components/home/home.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
-import { TopTeamsService } from './services/top-teams.service';
-import { LoadingBarComponent } from './loading-bar/loading-bar.component';
-import { TeamsComponent } from './components/teams/teams.component';
-import { ChampionshipRankingsService } from './components/home/home.service';
+import { TopTeamsService } from './services/teams.service';
+import { TeamsComponent } from './footballTeams/teams/teams.component';
 
 
 @NgModule({
@@ -39,7 +37,7 @@ import { ChampionshipRankingsService } from './components/home/home.service';
     HttpModule,
     FootballTeamsModule
   ],
-  providers: [TopTeamsService, PlayService, ChampionshipRankingsService],
+  providers: [TopTeamsService, PlayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
