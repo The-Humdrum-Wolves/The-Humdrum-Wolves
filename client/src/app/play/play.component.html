@@ -1,0 +1,29 @@
+<button (click)="a()">Explorer response results</button>
+<div class="container">
+  <h2 class="text-center">All Upcoming Fixtures</h2>
+  <hr />
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center">Date</th>
+        <th class="text-center">Home Team</th>
+        <th class="text-center">vs.</th>
+        <th class="text-center">Away Team</th>
+        <th class="text-center">Bet for Home Team</th>
+        <th class="text-center">Bet for a Draw</th>
+        <th class="text-center">Bet for Away Team</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let singleFixture of allMatches">
+      <tr>
+        <td class = "text-center centerText">{{singleFixture.date | date: 'medium'}}</td>
+        <td class = "text-center centerText" >{{singleFixture.homeTeamName}}</td>
+        <td class = "text-center centerText ">-</td>
+        <td class = "text-center centerText">{{singleFixture.awayTeamName}}</td>
+        <td><button class="btn btn-primary btn-md hundredWidth">Winner</button></td>
+        <td><button class="btn btn-warning btn-md hundredWidth">Draw</button></td>
+        <td><button class="btn btn-primary btn-md hundredWidth">Winner</button></td>        
+      </tr>
+    </tbody>
+  </table>
+</div>
