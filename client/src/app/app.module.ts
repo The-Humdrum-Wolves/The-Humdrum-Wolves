@@ -16,8 +16,6 @@ import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
 import { TopTeamsService } from './services/teams.service';
-import { TeamsComponent } from './footballTeams/teams/teams.component';
-
 
 @NgModule({
   declarations: [
@@ -26,7 +24,7 @@ import { TeamsComponent } from './footballTeams/teams/teams.component';
     RulesComponent,
     RankingComponent,
     PlayComponent,
-    PlayersComponent
+    PlayersComponent,
   ],
   imports: [
     BrowserModule,
