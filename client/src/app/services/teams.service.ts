@@ -1,4 +1,3 @@
-import { ClientPage } from './../../../e2e/app.po';
 import { ApiHelpers } from './../apiHelpers/apiHelpers';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
