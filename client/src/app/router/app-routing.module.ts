@@ -18,7 +18,6 @@ const appRoutes: Routes = [
     { path: 'rules', component: RulesComponent },
     { path: 'ranking', component: RankingComponent },
     { path: 'play', component: PlayComponent },
-    
     { path: 'teams', component: TeamsComponent },
     { path: 'team/:id', component: SingleTeamComponent },    
     { path: '', redirectTo: '/home', pathMatch: 'full' },

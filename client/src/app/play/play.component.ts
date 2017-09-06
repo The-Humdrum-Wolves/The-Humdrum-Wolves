@@ -9,11 +9,17 @@ import { PlayService } from './../services/play.service';
 export class PlayComponent implements OnInit {
 
   allMatches;
+  loading: boolean = false;
   constructor(private playService: PlayService) { }
 
   ngOnInit() {
+    this.loading = true;
+
     this.playService.getAllFixtures()
-    .subscribe(fixtures => this.allMatches = fixtures.fixtures);    
+    .subscribe(fixtures => {
+      this.allMatches = fixtures.fixtures,
+      this.loading = false;
+    }, () => this.loading = false);    
   }
 
   a(){
