@@ -34,7 +34,7 @@ export class ApiHelpers {
         }
     }
 
-    static competitionUrls(id: number) {
+    static competitionUrls(id?: number) {
         if (id) {
             return {
                 competitionTeams: this.baseUrl + this.mainRoutes.competitions + `/${id}` + this.mainRoutes.teams,
@@ -47,7 +47,7 @@ export class ApiHelpers {
         return this.baseUrl + this.mainRoutes.competitions;
     }
 
-    static otherUrls(id: number) {
+    static otherUrls(id?: number) {
         if (id) {
             return {
                 oneFixture: this.baseUrl + this.mainRoutes.fixtures + `/${id}`,
