@@ -16,6 +16,7 @@ import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
 import { TopTeamsService } from './services/teams.service';
+import { ChampionshipRankingsService } from './components/home/home.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { TopTeamsService } from './services/teams.service';
     RulesComponent,
     RankingComponent,
     PlayComponent,
-    PlayersComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,7 @@ import { TopTeamsService } from './services/teams.service';
     HttpModule,
     FootballTeamsModule
   ],
-  providers: [TopTeamsService, PlayService],
+  providers: [TopTeamsService, PlayService, ChampionshipRankingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
