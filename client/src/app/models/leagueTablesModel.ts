@@ -1,4 +1,4 @@
-export interface IChampionshipRankings {
+export class ChampionshipRankings {
     leagueCaption: string;
     // standing: any;
     standing: {
