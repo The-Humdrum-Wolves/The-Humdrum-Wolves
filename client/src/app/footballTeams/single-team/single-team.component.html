@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <h1 class="text-center text-danger">{{foundTeam.name}}</h1>
+    <h1 class="text-center text-danger" appBoldItalic>{{foundTeam.name}}</h1>
     <img class="img-responsive center-block" src="{{foundTeam.crestUrl}}" width="20%" />
     <hr />
     <a href="#/team/{{foundTeam.id}}/players" class="btn btn-primary btn-md pull-right">Team Players</a>
@@ -10,9 +10,9 @@
     <table class="table table-bordered">
       <tbody *ngFor="let fixture of teamFixtures">
         <tr *ngIf="fixture.status === 'FINISHED'">
-          <td>{{fixture.homeTeamName}}</td>
+          <td [ngClass]="{'win': fixture.result.goalsHomeTeam > fixture.result.goalsAwayTeam}">{{fixture.homeTeamName}}</td>
           <td class="text-center">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</td>
-          <td>{{fixture.awayTeamName}}</td>
+          <td [ngClass]="{'win': fixture.result.goalsAwayTeam > fixture.result.goalsHomeTeam}">{{fixture.awayTeamName}}</td>
           <td>{{fixture.date | formatFixtureDate}}</td>
         </tr>
       </tbody>
@@ -23,9 +23,9 @@
     <table class="table table-bordered">
       <tbody *ngFor="let fixture of teamFixtures">
         <tr *ngIf="fixture.status === 'TIMED' || fixture.status === 'SCHEDULED'">
-            <td>{{fixture.homeTeamName}}</td>
+            <td [ngClass]="{'win': fixture.result.goalsHomeTeam > fixture.result.goalsAwayTeam}">{{fixture.homeTeamName}}</td>
             <td class="text-center">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</td>
-            <td>{{fixture.awayTeamName}}</td>
+            <td [ngClass]="{'win': fixture.result.goalsAwayTeam > fixture.result.goalsHomeTeam}">{{fixture.awayTeamName}}</td>
             <td>{{fixture.date | formatFixtureDate}}</td>
         </tr>
       </tbody>
