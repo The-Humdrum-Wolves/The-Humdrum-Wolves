@@ -6,7 +6,7 @@
   <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
   </div>
   <table class="table table-bordered">
-    <thead [hidden]="loading">
+    <thead *appHideElement="loading">
       <tr>
         <th class="text-center">Date</th>
         <th class="text-center">Home Team</th>
@@ -19,7 +19,7 @@
     </thead>
     <tbody *ngFor="let singleFixture of allMatches">
       <tr>
-        <td class = "text-center centerText">{{singleFixture.date | date: 'medium'}}</td>
+        <td class = "text-center centerText">{{singleFixture.date | formatFixtureDate}}</td>
         <td class = "text-center centerText" >{{singleFixture.homeTeamName}}</td>
         <td class = "text-center centerText ">-</td>
         <td class = "text-center centerText">{{singleFixture.awayTeamName}}</td>
