@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './router/app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthModule } from './auth/auth.module';
 import { PlayModule } from './play/play.module';
@@ -31,7 +32,8 @@ import { ChampionshipRankingsService } from './components/home/home.service';
     Error404Module,
     HttpModule,
     FootballTeamsModule,
-    PlayModule
+    PlayModule,
+    ReactiveFormsModule
   ],
 
   providers: [ChampionshipRankingsService],
