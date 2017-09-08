@@ -16,6 +16,7 @@
                     <li *ngIf="formControls.username.errors?.required && formControls.username.dirty">This field is required</li>
                     <li *ngIf="formControls.username.errors?.minlength ||
                         formControls.username.errors?.maxlength">Username must be between 3 and 20 characters</li>
+                    <li *ngIf="formControls.username.errors?.validateUsername && formControls.username.dirty">Username must contain only latin characters and numbers</li>
                 </ul>
             </div>
         </div>
