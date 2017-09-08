@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./pageNotFound.component.css']
 })
 export class PageNotFoundComponent {
-
+    pageNotFound: string = '404 Page Not Found';
 }
