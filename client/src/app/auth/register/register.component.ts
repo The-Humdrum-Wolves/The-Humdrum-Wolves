@@ -43,7 +43,12 @@ export class RegisterComponent implements OnInit {
                 Validators.minLength(3),
                 Validators.maxLength(50) 
             ])],
-            age: ['', Validators.required]
+            age: ['', Validators.compose([
+                Validators.required,
+                this.validateAge
+            ])]
+        }, {
+            validator: this.matchingPasswords('password', 'confirm')
         })
     }
 
@@ -56,7 +61,7 @@ export class RegisterComponent implements OnInit {
         if(regExp.test(controls.value)) {
             return null;
         } else {
-            return {'validateEmail': true}
+            return { 'validateEmail': true }
         }
     }
 
@@ -65,7 +70,7 @@ export class RegisterComponent implements OnInit {
         if(regExp.test(controls.value)) {
             return null;
         } else {
-            return {'validateUsername': true}
+            return { 'validateUsername': true }
         }
     }
 
@@ -74,7 +79,26 @@ export class RegisterComponent implements OnInit {
         if(regExp.test(controls.value)) {
             return null;
         } else {
-            return {'validatePassword': true}
+            return { 'validatePassword': true }
+        }
+    }
+
+    validateAge(controls) {
+        const regExp = new RegExp(/^[0-9]+$/);
+        if(regExp.test(controls.value)) {
+            return null;
+        } else {
+            return { 'validateAge': true }
+        }
+    }
+
+    matchingPasswords(password, confirm) {
+        return (group: FormGroup) => {
+            if(group.controls[password].value === group.controls[confirm].value) {
+                return null;
+            } else {
+                return { 'matchingPasswords': true }
+            }
         }
     }
 

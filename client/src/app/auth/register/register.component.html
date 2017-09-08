@@ -58,12 +58,14 @@
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Confirm Password</label>
-            <div class="col-md-4" [ngClass]="{'has-error': (formControls.confirm.errors && formControls.confirm.dirty),
-            'has-success': !formControls.confirm.errors}">
+            <div class="col-md-4" [ngClass]="{'has-error': (formControls.confirm.errors && formControls.confirm.dirty) ||
+                (regForm.errors?.matchingPasswords && formControls.confirm.dirty),
+                'has-success': !formControls.confirm.errors && !regForm.errors?.matchingPasswords}">
                 <input id="confirm" name="confirm" type="password" class="form-control input-md" 
                 required="" formControlName="confirm">
                 <ul class="help-block">
                     <li *ngIf="formControls.confirm.errors?.required && formControls.confirm.dirty">This field is required</li>
+                    <li *ngIf="regForm.errors?.matchingPasswords && formControls.confirm.dirty">Paswords must match</li>
                 </ul>
             </div>
         </div>
@@ -101,6 +103,7 @@
                 required="" formControlName="age">
                 <ul class="help-block">
                     <li *ngIf="formControls.age.errors?.required && formControls.age.dirty">This field is required</li>
+                    <li *ngIf="formControls.age.errors?.validateAge && formControls.age.dirty">Age must be a number</li>
                 </ul>
             </div>
         </div>
