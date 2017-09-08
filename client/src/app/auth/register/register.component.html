@@ -1,4 +1,4 @@
-<form class="form-horizontal" [formGroup]="regForm">
+<form class="form-horizontal" [formGroup]="regForm" (submit)="onRegisterSubmit()">
     <fieldset>
         <!-- Form Name -->
         <legend class="text-center">
@@ -8,36 +8,52 @@
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Username</label>
-            <div class="col-md-4">
-                <input id="textinput" name="username" type="text" class="form-control input-md" 
-                required="" formControlName="username">
+            <div class="col-md-4" [ngClass]="{'has-error': (formControls.username.errors && formControls.username.dirty),
+                'has-success': !formControls.username.errors}">
+                <input id="username" name="username" type="text" class="form-control input-md" 
+                formControlName="username">
+                <ul class="help-block">
+                    <li *ngIf="formControls.username.errors?.required && formControls.username.dirty">This field is required</li>
+                </ul>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">E-mail</label>
-            <div class="col-md-4">
-                <input id="textinput" name="email" type="text" class="form-control input-md" 
+            <div class="col-md-4" [ngClass]="{'has-error': (formControls.email.errors && formControls.email.dirty),
+            'has-success': !formControls.email.errors}">
+                <input id="email" name="email" type="text" class="form-control input-md" 
                 required="" formControlName="email">
+                <ul class="help-block">
+                    <li *ngIf="formControls.email.errors?.required && formControls.email.dirty">This field is required</li>
+                </ul>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Password</label>
-            <div class="col-md-4">
-                <input id="textinput" name="password" type="text" class="form-control input-md" 
+            <div class="col-md-4" [ngClass]="{'has-error': (formControls.password.errors && formControls.password.dirty),
+            'has-success': !formControls.password.errors}">
+                <input id="password" name="password" type="password" class="form-control input-md" 
                 required="" formControlName="password">
+                <ul class="help-block">
+                    <li *ngIf="formControls.password.errors?.required && formControls.password.dirty">This field is required</li>
+                </ul>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Confirm Password</label>
-            <div class="col-md-4">
-                <input id="textinput" name="confirm" type="text" class="form-control input-md" 
-                required="" formControlName="confirm"> 
+            <div class="col-md-4" [ngClass]="{'has-error': (formControls.confirm.errors && formControls.confirm.dirty),
+            'has-success': !formControls.confirm.errors}">
+                <input id="confirm" name="confirm" type="password" class="form-control input-md" 
+                required="" formControlName="confirm">
+                <ul class="help-block">
+                    <li *ngIf="formControls.confirm.errors?.required && formControls.confirm.dirty">This field is required</li>
+                </ul>
             </div>
         </div>
 
@@ -53,18 +69,26 @@
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Full Name</label>
-            <div class="col-md-4">
+            <div class="col-md-4" [ngClass]="{'has-error': (formControls.fullName.errors && formControls.fullName.dirty),
+            'has-success': !formControls.fullName.errors}">
                 <input id="textinput" name="fullName" type="text" class="form-control input-md" 
                 required="" formControlName="fullName">
+                <ul class="help-block">
+                    <li *ngIf="formControls.fullName.errors?.required && formControls.fullName.dirty">This field is required</li>
+                </ul>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Age</label>
-            <div class="col-md-4">
+            <div class="col-md-4" [ngClass]="{'has-error': (formControls.age.errors && formControls.age.dirty),
+            'has-success': !formControls.age.errors}">
                 <input id="textinput" name="age" type="text" class="form-control input-md" 
                 required="" formControlName="age">
+                <ul class="help-block">
+                    <li *ngIf="formControls.age.errors?.required && formControls.age.dirty">This field is required</li>
+                </ul>
             </div>
         </div>
 
@@ -72,7 +96,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="registerBtn"></label>
             <div class="col-md-4">
-                <button id="regBtn" name="registerBtn" class="btn btn-success">Register</button>
+                <button id="regBtn" name="registerBtn" class="btn btn-success" [disabled]="!regForm.valid">Register</button>
             </div>
         </div>
 
