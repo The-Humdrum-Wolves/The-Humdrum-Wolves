@@ -19,7 +19,7 @@
     </thead>
     <tbody *ngFor="let singleFixture of allMatches">
       <tr>
-        <td class = "text-center centerText">{{singleFixture.date | date: 'medium'}}</td>
+        <td class = "text-center centerText">{{singleFixture.date | formatFixtureDate}}</td>
         <td class = "text-center centerText" >{{singleFixture.homeTeamName}}</td>
         <td class = "text-center centerText ">-</td>
         <td class = "text-center centerText">{{singleFixture.awayTeamName}}</td>

@@ -1,4 +1,4 @@
-import { ApiHelpers } from './../apiHelpers/apiHelpers';
+import { ApiHelpers } from "./../../apiHelpers/apiHelpers";
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';

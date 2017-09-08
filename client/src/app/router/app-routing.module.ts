@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './../error404/pageNotFound/pageNotFound.c
 import { RulesComponent } from './../components/rules/rules.component';
 import { RankingComponent } from './../components/ranking/ranking.component';
 import { TeamsComponent } from './../footballTeams/teams/teams.component';
-import { PlayersComponent } from './../players/players.component';
+import { PlayersComponent } from './../footballTeams/players/players.component';
 import { PlayComponent } from './../play/play.component';
 import { SingleTeamComponent } from './../footballTeams/single-team/single-team.component';
 
