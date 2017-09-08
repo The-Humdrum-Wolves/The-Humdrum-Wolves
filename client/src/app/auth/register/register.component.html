@@ -45,9 +45,12 @@
                 <input id="password" name="password" type="password" class="form-control input-md" 
                 required="" formControlName="password">
                 <ul class="help-block">
-                    <li *ngIf="formControls.password.errors?.required && formControls.password.dirty">This field is required</li>
+                    <li *ngIf="formControls.password.errors?.required 
+                        && formControls.password.dirty">This field is required</li>
                     <li *ngIf="formControls.password.errors?.minlength ||
-                    formControls.password.errors?.maxlength">Password must be between 5 and 30 characters</li>
+                        formControls.password.errors?.maxlength">Password must be between 8 and 30 characters</li>
+                    <li *ngIf="formControls.password.errors?.validatePassword 
+                        && formControls.password.dirty">Password must contain at least one number, lowercase and uppercase latin character</li>
                 </ul>
             </div>
         </div>

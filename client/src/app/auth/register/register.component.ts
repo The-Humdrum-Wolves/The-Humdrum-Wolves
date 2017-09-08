@@ -33,8 +33,9 @@ export class RegisterComponent implements OnInit {
             ])],
             password: ['', Validators.compose([
                 Validators.required,
-                Validators.minLength(5),
-                Validators.maxLength(30) 
+                Validators.minLength(8),
+                Validators.maxLength(30),
+                this.validatePassword
             ])],
             confirm: ['', Validators.required],
             fullName: ['', Validators.compose([
@@ -65,6 +66,15 @@ export class RegisterComponent implements OnInit {
             return null;
         } else {
             return {'validateUsername': true}
+        }
+    }
+
+    validatePassword(controls) {
+        const regExp = new RegExp(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,30})$/);
+        if(regExp.test(controls.value)) {
+            return null;
+        } else {
+            return {'validatePassword': true}
         }
     }
 
