@@ -27,7 +27,8 @@ export class RegisterComponent implements OnInit {
             email: ['', Validators.compose([
                 Validators.required,
                 Validators.minLength(3),
-                Validators.maxLength(30) 
+                Validators.maxLength(30),
+                this.validateEmail
             ])],
             password: ['', Validators.compose([
                 Validators.required,
@@ -46,6 +47,15 @@ export class RegisterComponent implements OnInit {
 
     onRegisterSubmit() {
         console.log(this.regForm);
+    }
+
+    validateEmail(controls) {
+        const regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        if(regExp.test(controls.value)) {
+            return null;
+        } else {
+            return {'validateEmail': true}
+        }
     }
 
     ngOnInit(): void {

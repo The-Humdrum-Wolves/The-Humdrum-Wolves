@@ -31,6 +31,7 @@
                     <li *ngIf="formControls.email.errors?.required && formControls.email.dirty">This field is required</li>
                     <li *ngIf="formControls.email.errors?.minlength ||
                     formControls.email.errors?.maxlength">Email must be between 3 and 30 characters</li>
+                    <li *ngIf="formControls.email.errors?.validateEmail && formControls.email.dirty">E-mail must be valid</li>
                 </ul>
             </div>
         </div>
