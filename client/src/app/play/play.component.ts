@@ -13,6 +13,7 @@ export class PlayComponent implements OnInit {
   constructor(private playService: PlayService) { }
 
   ngOnInit() {
+    
     this.loading = true;
 
     this.playService.getAllFixtures()
