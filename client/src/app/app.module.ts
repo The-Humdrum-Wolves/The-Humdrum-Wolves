@@ -40,7 +40,7 @@ import { ChampionshipRankingsService } from './components/home/home.service';
     FootballTeamsModule
   ],
 
-  providers: [TopTeamsService, PlayService, PlayersService],
+  providers: [TopTeamsService, PlayService, PlayersService, ChampionshipRankingsService],
 
   bootstrap: [AppComponent]
 })
