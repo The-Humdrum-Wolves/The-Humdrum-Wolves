@@ -3,13 +3,14 @@ import { SingleTeamComponent } from './../footballTeams/single-team/single-team.
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from '../components/home/home.component';
 import { RegisterComponent } from './../auth/register/register.component';
 import { LoginComponent } from './../auth/login/login.component';
 import { PageNotFoundComponent } from './../error404/pageNotFound/pageNotFound.component';
 import { RulesComponent } from './../components/rules/rules.component';
 import { RankingComponent } from './../components/ranking/ranking.component';
 import { TeamsComponent } from './../footballTeams/teams/teams.component';
+import { HomeTeamComponent } from "../components/home/home-team.component/home-team.component";
+import { HomeComponent } from "../components/home/home.component/home.component";
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     { path: 'play', component: PlayComponent },
     { path: 'teams', component: TeamsComponent },
     { path: 'team/:id', component: SingleTeamComponent },    
+    { path: 'competition/:id', component: HomeComponent },    
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent },
   ];

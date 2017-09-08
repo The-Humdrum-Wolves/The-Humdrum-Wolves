@@ -42,3 +42,8 @@
         font-size: initial;
     }
 }
+
+img {
+    mix-blend-mode: multiply;
+    width: 100%;
+}

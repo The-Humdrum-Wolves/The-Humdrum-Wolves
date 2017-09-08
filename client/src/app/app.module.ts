@@ -1,3 +1,4 @@
+import { HomeModule } from './components/home/home.module';
 import { PlayService } from './services/play.service';
 import { PlayersComponent } from './players/players.component';
 import { PlayComponent } from './play/play.component';
@@ -11,17 +12,15 @@ import { AppRoutingModule } from './router/app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './components/home/home.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
 import { TopTeamsService } from './services/teams.service';
-import { ChampionshipRankingsService } from './components/home/home.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     RulesComponent,
     RankingComponent,
     PlayComponent,
@@ -34,9 +33,10 @@ import { ChampionshipRankingsService } from './components/home/home.service';
     SharedModule,
     Error404Module,
     HttpModule,
-    FootballTeamsModule
+    FootballTeamsModule,
+    HomeModule
   ],
-  providers: [TopTeamsService, PlayService, ChampionshipRankingsService],
+  providers: [TopTeamsService, PlayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
