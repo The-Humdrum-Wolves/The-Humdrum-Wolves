@@ -1,8 +1,6 @@
-import { ClientPage } from './../../../../e2e/app.po';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TopTeamsService } from './../../services/teams.service';
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-single-team',
