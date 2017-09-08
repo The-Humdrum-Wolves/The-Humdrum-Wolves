@@ -41,7 +41,8 @@ export class RegisterComponent implements OnInit {
             fullName: ['', Validators.compose([
                 Validators.required,
                 Validators.minLength(3),
-                Validators.maxLength(50) 
+                Validators.maxLength(50),
+                this.validateFullName
             ])],
             age: ['', Validators.compose([
                 Validators.required,
@@ -89,6 +90,15 @@ export class RegisterComponent implements OnInit {
             return null;
         } else {
             return { 'validateAge': true }
+        }
+    }
+
+    validateFullName(controls) {
+        const regExp = new RegExp(/^[a-zA-Z]+$/);
+        if(regExp.test(controls.value)) {
+            return null;
+        } else {
+            return { 'validateFullName': true }
         }
     }
 

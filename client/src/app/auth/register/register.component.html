@@ -89,7 +89,9 @@
                 <ul class="help-block">
                     <li *ngIf="formControls.fullName.errors?.required && formControls.fullName.dirty">This field is required</li>
                     <li *ngIf="formControls.fullName.errors?.minlength ||
-                    formControls.fullName.errors?.maxlength">Full name must be between 3 and 50 characters</li>
+                        formControls.fullName.errors?.maxlength">Name must be between 3 and 50 characters</li>
+                    <li *ngIf="formControls.fullName.errors?.validateFullName 
+                        && formControls.fullName.dirty">Name must contain only latin characters</li>
                 </ul>
             </div>
         </div>
