@@ -13,7 +13,7 @@ export class RegisterComponent {
     constructor(
         private formBuilder: FormBuilder
     ) {
-        this.createForm();
+        this.createForm();  
     }
 
     createForm() {
