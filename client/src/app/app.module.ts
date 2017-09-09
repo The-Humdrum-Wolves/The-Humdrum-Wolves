@@ -3,6 +3,10 @@ import { AppRoutingModule } from './router/app-routing.module';
 
 import { AuthModule } from './auth/auth.module';
 import { PlayModule } from './play/play.module';
+import { HomeModule } from './components/home/home.module';
+import { PlayService } from './services/play.service';
+import { PlayersComponent } from './players/players.component';
+import { PlayComponent } from './play/play.component';
 import { FootballTeamsModule } from './footballTeams/football-teams.module';
 import { HttpModule } from '@angular/http';
 import { Error404Module } from './error404/error404.module';
@@ -15,11 +19,16 @@ import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
 import { ChampionshipRankingsService } from './components/home/home.service';
+import { SharedModule } from './shared/shared.module';
+import { RulesComponent } from './components/rules/rules.component';
+import { RankingComponent } from './components/ranking/ranking.component';
+
+import { TopTeamsService } from './services/teams.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     RulesComponent,
     RankingComponent
   ],
@@ -31,11 +40,10 @@ import { ChampionshipRankingsService } from './components/home/home.service';
     Error404Module,
     HttpModule,
     FootballTeamsModule,
-    PlayModule
+    PlayModule,
+    HomeModule
   ],
-
-  providers: [ChampionshipRankingsService],
-
+  providers: [TopTeamsService, PlayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

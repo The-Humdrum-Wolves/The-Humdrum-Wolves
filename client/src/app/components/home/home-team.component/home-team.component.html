@@ -1,0 +1,31 @@
+<button (click)="  a()">Use this button to console log whole received object</button>
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center text-danger">{{championshipRankings.leagueCaption}}</h1>
+    <img class="img-responsive center-block" src="{{championshipRankings.crestUrl}}" width="20%" onError="this.src='./../../../assets/images/noImageAvailable.png'"/>
+    <hr />
+    <!-- <h3 class="text-center">Past comps</h3> -->
+    <table class="table table-bordered">
+      <tbody *ngFor="let comp of competitions">
+        <!-- <tr *ngIf="comp.status === 'FINISHED'"> -->
+        <tr>
+          <td>{{comp.standing.position}}</td>
+          <!-- <td class="text-center">{{comp.result.goalsHomeTeam}} - {{comp.result.goalsAwayTeam}}</td> -->
+          <td>{{comp.standing.teamName}}</td>
+          <td>{{comp.standing.crestURI}}</td>
+          <td>{{comp.standing.playedGames}}</td>
+          <td>{{comp.standing.points}}</td>
+          <td>{{comp.standing.goals}}</td>
+          <td>{{comp.standing.goalsAgains}}</td>
+          <td>{{comp.standing.goalDifference}}</td>
+          <td>{{comp.standing.wins}}</td>
+          <td>{{comp.standing.draws}}</td>
+          <td>{{comp.standing.loses}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="#/home" class="btn btn-warning btn-md pull-right">Go back to Home page</a>
+</div>
+
