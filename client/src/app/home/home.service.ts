@@ -1,10 +1,13 @@
-import { ApiHelpers } from "../apiHelpers/apiHelpers";
-import { Observable } from 'rxjs/Observable';
-import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
-
+import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+
 import { ChampionshipRankings } from "../models/leagueTablesModel";
+import { HomePageModel } from './../models/homePageModel';
+
+import { ApiHelpers } from "../apiHelpers/apiHelpers";
+
 
 @Injectable()
  export class ChampionshipRankingsService {
@@ -19,8 +22,7 @@ import { ChampionshipRankings } from "../models/leagueTablesModel";
     });
 
     constructor(private http: Http) {}
-
-    getAll(): Observable<any> {
+    getAll(): Observable<HomePageModel> {
         this.competitionUrls = ApiHelpers.competitionUrls();
         console.log(this.competitionUrls);
 

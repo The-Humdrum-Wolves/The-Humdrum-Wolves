@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Championships } from './../../models/homePageModel';
+import { HomePageModel } from './../../models/homePageModel';
 import { ChampionshipRankingsService } from "./../home.service";
 
 @Component({
@@ -11,10 +11,9 @@ import { ChampionshipRankingsService } from "./../home.service";
 })
 
 export class HomeComponent implements OnInit {
-    championships: Championships[];
+    private championships;
     loading: boolean;
     constructor(private championshipRankingsService: ChampionshipRankingsService) { }
-
     ngOnInit() {
         this.loading = true;
 

@@ -1,4 +1,4 @@
-export class Championships {
+export class HomePageModel {
     id: number;
     caption: string;
     currentMatchday: number;
