@@ -1,8 +1,10 @@
-import { ApiHelpers } from "./../../apiHelpers/apiHelpers";
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+
+import { ApiHelpers } from "./../../apiHelpers/apiHelpers";
+import { PlayerModel } from './../../models/playerModel';
 
 @Injectable()
 export class PlayersService {
@@ -10,7 +12,7 @@ export class PlayersService {
   players;
   constructor(private http: Http) { }
 
-  getAllPlayersFromCertainTeam(id): Observable<any> {
+  getAllPlayersFromCertainTeam(id): Observable<PlayerModel> {
     this.players = ApiHelpers.otherUrls(id);
     
     return this.http.get(this.players.allPlayersCertainTeam,

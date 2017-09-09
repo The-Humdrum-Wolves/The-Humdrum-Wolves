@@ -2,10 +2,12 @@
 
 <div class="container">
   <div class="row">
-    <h1 class="text-center text-danger" appBoldItalic>{{foundTeam.name}}</h1>
-    <img class="img-responsive center-block" src="{{foundTeam.crestUrl}}" width="20%" />
-    <hr>
-    <a href="#/team/{{foundTeam.id}}/players" class="btn btn-primary btn-md pull-right">Team Players</a>
+    <div *ngIf="foundTeam">
+      <h1 class="text-center text-danger" appBoldItalic>{{foundTeam.name}}</h1>
+      <img class="img-responsive center-block" src="{{foundTeam.crestUrl}}" width="20%" />
+      <hr />
+      <a href="#/team/{{foundTeam.id}}/players" class="btn btn-primary btn-md pull-right">Team Players</a>
+    </div>
     <h3 class="text-center">Past Fixtures</h3>
     <table class="table table-bordered">
       <tbody *ngFor="let fixture of teamFixtures">

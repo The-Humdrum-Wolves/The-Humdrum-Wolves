@@ -8,7 +8,8 @@ export class FormatDatePipe implements PipeTransform {
 
   formatedDate: string;
   transform(fixtureDate: string) {
-    this.formatedDate = moment(this.formatedDate).format('LLLL');
+    
+    this.formatedDate = moment(fixtureDate).format('LLLL');
     
     return this.formatedDate;
   }
