@@ -1,6 +1,6 @@
 import { ChampionshipRankingsService } from "./../home.service";
 import { Router, ActivatedRoute } from '@angular/router';
-import { Championships } from './../../../models/homePageModel';
+import { Championships } from './../../models/homePageModel';
 import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
 
 @Component({

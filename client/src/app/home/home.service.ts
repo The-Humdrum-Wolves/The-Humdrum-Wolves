@@ -1,10 +1,10 @@
-import { ApiHelpers } from "../../apiHelpers/apiHelpers";
+import { ApiHelpers } from "../apiHelpers/apiHelpers";
 import { Observable } from 'rxjs/Observable';
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/map';
-import { ChampionshipRankings } from "../../models/leagueTablesModel";
+import { ChampionshipRankings } from "../models/leagueTablesModel";
 
 
 

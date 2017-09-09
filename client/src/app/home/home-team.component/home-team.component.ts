@@ -1,6 +1,6 @@
 import { ChampionshipRankingsService } from "./../home.service";
 import { Router, ActivatedRoute } from '@angular/router';
-import { ChampionshipRankings } from './../../../models/leagueTablesModel';
+import { ChampionshipRankings } from './../../models/leagueTablesModel';
 import { Component, OnInit, Inject } from '@angular/core';
 
 @Component({

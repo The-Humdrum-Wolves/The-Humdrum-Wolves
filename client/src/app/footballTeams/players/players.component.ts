@@ -1,13 +1,14 @@
-import { PlayersService } from './../services/players.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
+import { PlayersService } from './../services/players.service';
 
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
   styleUrls: ['./players.component.css']
 })
-export class PlayersComponent implements OnInit, OnDestroy  {
+export class PlayersComponent implements OnInit  {
   idFromUrl: number = parseInt(this.route.snapshot.params['id']);
   allPlayers;
   subscription;
@@ -16,11 +17,6 @@ export class PlayersComponent implements OnInit, OnDestroy  {
   ngOnInit() {
     this.subscription = this.playersService.getAllPlayersFromCertainTeam(this.idFromUrl)
       .subscribe(foundPlayers => this.allPlayers = foundPlayers.players);
-  }
-
-  ngOnDestroy() {
-    console.log(44);
-    this.subscription.unsubscribe();
   }
 
   a(){
