@@ -13,7 +13,7 @@ import { AllLeagueTeamsComponent } from './allLeagueTeams/allLeagueTeams.compone
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     TeamsComponent, 
