@@ -10,10 +10,10 @@ import { ChampionshipRankings } from "../../models/leagueTablesModel";
 
 @Injectable()
  export class ChampionshipRankingsService {
-    private championshipRankings: ChampionshipRankings[];
+    private championshipRankings: ChampionshipRankings;
     private competitionUrls;
     private competitionId;
-
+    
     private headers: Headers = new Headers({
         'X-Auth-Token': 'ca9d984a4c1e4042b295f4eaa19b122e',
         'Content-Type': 'text/plain',

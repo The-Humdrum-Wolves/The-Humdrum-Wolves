@@ -1,4 +1,4 @@
-export class Championships {
+export interface Championships {
     id: number;
     caption: string;
     league: string;

@@ -4,8 +4,8 @@ import { AppRoutingModule } from './router/app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { PlayModule } from './play/play.module';
 import { HomeModule } from './components/home/home.module';
-import { PlayService } from './services/play.service';
-import { PlayersComponent } from './players/players.component';
+// import { PlayService } from './services/play.service';
+// import { PlayersComponent } from './players/players.component';
 import { PlayComponent } from './play/play.component';
 import { FootballTeamsModule } from './footballTeams/football-teams.module';
 import { HttpModule } from '@angular/http';
@@ -14,16 +14,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
 import { ChampionshipRankingsService } from './components/home/home.service';
-import { SharedModule } from './shared/shared.module';
-import { RulesComponent } from './components/rules/rules.component';
-import { RankingComponent } from './components/ranking/ranking.component';
-
-import { TopTeamsService } from './services/teams.service';
+import { TopTeamsService } from "./footballTeams/services/teams.service";
+import { PlayService } from "./play/play.service";
 
 
 @NgModule({

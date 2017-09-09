@@ -10,23 +10,29 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 
 export class HomeTeamComponent implements OnInit {
-    public championshipRankings: ChampionshipRankings[];
-    competitions;
+    public championshipRankings: ChampionshipRankings;
     idFromUrl: number = parseInt(this.route.snapshot.params['id']);
-    foundTeam;
+    loading: boolean = false;
 
-    constructor(private championshipRankingsService: ChampionshipRankingsService, private router: Router, private route: ActivatedRoute) {}
-   // constructor(@Inject(ChampionshipRankingsService) private championshipRankingsService: ChampionshipRankingsService) {}
+    constructor(private championshipRankingsService: ChampionshipRankingsService, private router: Router, private route: ActivatedRoute) { }
+    // constructor(@Inject(ChampionshipRankingsService) private championshipRankingsService: ChampionshipRankingsService) {}
 
     ngOnInit() {
+
+        this.loading = true;
+
         this.championshipRankingsService.getRankingsByCompetitionId(this.idFromUrl)
-        .subscribe(info => {
-            this.championshipRankings = info;
-            console.log(info);
-        });
+            .subscribe(info => {
+                this.championshipRankings = info;
+                // console.log(info);
+                // console.log(this.idFromUrl);
+                // console.log(this.championshipRankings.standing[10]);
+            },
+            (err) => console.log(err),
+            () => this.loading = false);
     }
 
     a() {
         console.log(this.championshipRankings);
-      }
+    }
 }

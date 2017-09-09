@@ -24,6 +24,6 @@ export class HomeComponent implements AfterViewInit  {
     }
 
     a() {
-        console.log(this.championships.length);
+        console.log(this.championships);
       }
 }

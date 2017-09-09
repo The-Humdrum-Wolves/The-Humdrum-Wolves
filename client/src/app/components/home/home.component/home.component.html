@@ -41,7 +41,7 @@
     </a>
 </div>
 <h1 class="text-center">Explorer Championships</h1>
-<button (click)="a()">Console log info </button>
+<button (click)="a()">Check the console response </button>
 <!-- TO DO dinamically get info for ball icon -->
 <div class="container">
     <hr />
@@ -49,11 +49,10 @@
         <div class="col-sm-4" *ngFor='let champ of championships'>
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <a href="#/competition/{{champ.id}}" style="text-decoration: none; color: initial">
+                    <a href="#/competition/{{+champ.id}}" style="text-decoration: none; color: initial">
                         <p>{{champ.caption}}: {{champ.year}}</p>
-                        <img src="./../../../../assets/images/Championships/universal.png" width="20%"/>
-                        <!-- <img src="./../../../assets/images/Championships/{{champ.id}}.png" width="20%" onError="this.src='./../../../../assets/images/Championships/universal.png'"/>
-                         -->
+                        <!-- <img src="./../../../../assets/images/Championships/uni.png" width="20%"/> -->
+                        <img src="./../../../assets/images/Championships/{{champ.id}}.png" width="20%" onError="this.src='./../../../../assets/images/Championships/uni.png'"/>                       
                     </a>
                 </div>
                 <div class="panel-body">

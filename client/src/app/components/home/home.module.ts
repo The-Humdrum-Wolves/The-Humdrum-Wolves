@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { ChampionshipRankingsService } from './home.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,7 +9,8 @@ import { HomeTeamComponent } from './home-team.component/home-team.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   declarations: [HomeComponent, HomeTeamComponent],
   exports: [
@@ -16,7 +18,8 @@ import { HomeTeamComponent } from './home-team.component/home-team.component';
     HomeTeamComponent
   ],
   providers: [
-    ChampionshipRankingsService
+    ChampionshipRankingsService, 
+    
   ]
 })
 export class HomeModule { }

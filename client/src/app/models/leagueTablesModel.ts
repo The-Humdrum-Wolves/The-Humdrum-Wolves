@@ -1,12 +1,13 @@
-export class ChampionshipRankings {
-    leagueCaption: string;
+export interface ChampionshipRankings {
+    leagueCaption: string,
+    matchday: number,
     // standing: any;
     standing: {
-        _links: {
-            team: {
-                href: string;
-            }
-        };
+        // _links: {
+        //     team: {
+        //         href: string;
+        //     }
+        // };
         position: number,
         teamName: string,
         crestURI: string,
