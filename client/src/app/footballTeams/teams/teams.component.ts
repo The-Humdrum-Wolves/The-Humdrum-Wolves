@@ -10,13 +10,20 @@ import { Component, OnInit } from '@angular/core';
 export class TeamsComponent implements OnInit {
 
   
-  public teams;
+  teams;
+  loading: boolean = false;
+  
   constructor(private topTeams: TopTeamsService) { }
 
   ngOnInit() {
+    this.loading = true;
+
     this.topTeams
         .getAll()
-        .subscribe(info => this.teams = info.teams);
+        .subscribe(info => {
+          this.teams = info.teams,
+          this.loading = false;
+        }, () => this.loading = false);
   }
 
   a() {
