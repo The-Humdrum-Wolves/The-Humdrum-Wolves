@@ -1,5 +1,5 @@
 export class ApiHelpers {
-    static baseUrl = 'http://api.football-data.org/v1';
+    static baseUrl: string = 'http://api.football-data.org/v1';
 
     static mainRoutes = {
         competitions: <string>'/competitions',
@@ -25,7 +25,6 @@ export class ApiHelpers {
         championsLeague: <number>464
     }
 
-    // The X-Response-Control can be either full, minified or compressed
     static getHeaders(contentType, authToken, responseControl){
         return {
             'Content-type': <string> contentType,
@@ -44,7 +43,7 @@ export class ApiHelpers {
         }
 
         // If no id provided return all competitions url http://api.football-data.org/v1/competitions
-        return this.baseUrl + this.mainRoutes.competitions;
+        return this.baseUrl + this.mainRoutes.competitions + '?season=2017';
     }
 
     static otherUrls(id?: number) {
