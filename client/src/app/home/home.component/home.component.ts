@@ -1,7 +1,8 @@
-import { ChampionshipRankingsService } from "./../home.service";
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { Championships } from './../../models/homePageModel';
-import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
+import { ChampionshipRankingsService } from "./../home.service";
 
 @Component({
     selector: 'hw-home',
@@ -9,21 +10,23 @@ import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
     styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements AfterViewInit  {
+export class HomeComponent implements OnInit {
     championships: Championships[];
-    foundTeam;
+    loading: boolean;
+    constructor(private championshipRankingsService: ChampionshipRankingsService) { }
 
-    constructor(private championshipRankingsService: ChampionshipRankingsService) {}
-   // constructor( private router: Router, private route: ActivatedRoute) {}
-   // constructor(@Inject(ChampionshipRankingsService) private championshipRankingsService: ChampionshipRankingsService) {}
+    ngOnInit() {
+        this.loading = true;
 
-   ngAfterViewInit () {
         this.championshipRankingsService
-        .getAll()
-        .subscribe(info => this.championships = info);
+            .getAll()
+            .subscribe((info) => {
+                this.championships = info,
+                this.loading = false;
+            }, () => this.loading = false);
     }
 
     a() {
         console.log(this.championships);
-      }
+    }
 }

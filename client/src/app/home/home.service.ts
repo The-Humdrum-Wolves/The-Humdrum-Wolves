@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { ChampionshipRankings } from "../models/leagueTablesModel";
 
-
-
 @Injectable()
  export class ChampionshipRankingsService {
     private championshipRankings: ChampionshipRankings;

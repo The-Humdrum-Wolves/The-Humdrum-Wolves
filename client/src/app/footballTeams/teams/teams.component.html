@@ -1,9 +1,9 @@
 <div class="demo">
   <div class="container">
     <button (click)="a()">Use this button to console log whole received object</button>
-    <div class="center">
-      <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
-    </div>    
+
+    <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
+    
     <div class="row">
       <div *ngFor="let team of teams; let i = index">
         <a href="#/team/{{team.id}}" style="text-decoration: none; color: initial">

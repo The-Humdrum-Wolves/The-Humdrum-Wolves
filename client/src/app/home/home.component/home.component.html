@@ -40,23 +40,42 @@
       <span class="sr-only">Next</span>
     </a>
 </div>
+
 <h1 class="text-center">Explorer Championships</h1>
 <button (click)="a()">Check the console response </button>
-<!-- TO DO dinamically get info for ball icon -->
 <div class="container">
     <hr />
     <div class="row">
+        <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
         <div class="col-sm-4" *ngFor='let champ of championships'>
-            <div class="panel panel-default">
+            <div *ngIf="!championships">
+                <p>Sorry, something went wrong! Please, try again later</p>
+            </div>
+            <div class="panel panel-default" *appHideElement="!championships">
                 <div class="panel-heading text-center">
                     <a href="#/competition/{{+champ.id}}" style="text-decoration: none; color: initial">
-                        <p>{{champ.caption}}: {{champ.year}}</p>
-                        <!-- <img src="./../../../../assets/images/Championships/uni.png" width="20%"/> -->
-                        <img src="./../../../assets/images/Championships/{{champ.id}}.png" width="20%" onError="this.src='./../../../../assets/images/Championships/uni.png'"/>                       
+                        <p class="champTitle">{{champ.caption}}</p>
+                        <img src="./../../../assets/images/Championships/{{champ.id}}.png" width="20%" onError="this.src='./../../../../assets/images/Championships/uni.png'"
+                        />
                     </a>
                 </div>
-                <div class="panel-body">
-                    <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                <div class="panel-body" *appHideElement="!championships">
+                    <p>
+                        <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                        <label>Current Matchday: <strong>{{champ.currentMatchday}}</strong></label>
+                    </p>
+                    <p>
+                        <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                        <label>Matchdays: <strong>{{champ.numberOfMatchdays}}</strong></label>
+                    </p>
+                    <p>
+                        <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                        <label>Teams: <strong>{{champ.numberOfTeams}}</strong></label>
+                    </p>
+                    <p>
+                        <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                        <label>Games: <strong>{{champ.numberOfGames}}</strong></label>
+                    </p>
                 </div>
             </div>
         </div>
