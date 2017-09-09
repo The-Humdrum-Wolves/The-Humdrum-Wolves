@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from '../components/home/home.component';
+import { HomeComponent } from './../components/home/home.component/home.component';
 import { RegisterComponent } from './../auth/register/register.component';
 import { LoginComponent } from './../auth/login/login.component';
 import { PageNotFoundComponent } from './../error404/pageNotFound/pageNotFound.component';
