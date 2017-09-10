@@ -1,9 +1,16 @@
 const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
+const { ObjectID } = require('mongodb');
 
 class UserData extends BaseData {
     constructor(db) {
         super(db, User);
+    }
+
+    updateById(model) {
+        return this.collection.updateOne({
+            _id: model._id
+        }, model);
     }
 
     findByUsername(username) {

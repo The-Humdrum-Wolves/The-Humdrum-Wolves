@@ -65,15 +65,83 @@ export class ProfileComponent implements OnInit {
     }
 
     onChangePassowrd() {
+        const body = {
+            username: this.user.username,
+            email: this.user.email,
+            password: this.passwordForm.controls.password.value,
+            fullName: this.user.fullName,
+            age: this.user.age
+        }
 
+        this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
+            .subscribe();
+
+        this.http.get('http://localhost:3000/users/' + this.userId)
+            .subscribe((user) => {
+                return this.user = user
+            });
+
+        this.passwordForm.reset();
     }
 
     onChangeUsername() {
+        const body = {
+            username: this.usernameForm.controls.username.value,
+            email: this.user.email,
+            password: this.user.password,
+            fullName: this.user.fullName,
+            age: this.user.age
+        }
 
+        this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
+            .subscribe();
+
+        this.http.get('http://localhost:3000/users/' + this.userId)
+            .subscribe((user) => {
+                return this.user = user
+            });
+
+        this.usernameForm.reset();
     }
 
     onChangeFullName() {
+        const body = {
+            username: this.user.username,
+            email: this.user.email,
+            password: this.user.password,
+            fullName: this.fullNameForm.controls.fullName.value,
+            age: this.user.age
+        }
 
+        this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
+            .subscribe();
+
+        this.http.get('http://localhost:3000/users/' + this.userId)
+            .subscribe((user) => {
+                return this.user = user
+            });
+
+        this.fullNameForm.reset();
+    }
+
+    onChangeEmail() {
+        const body = {
+            username: this.user.username,
+            email: this.emailForm.controls.email.value,
+            password: this.user.password,
+            fullName: this.user.fullName,
+            age: this.user.age
+        }
+
+        this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
+            .subscribe();
+
+        this.http.get('http://localhost:3000/users/' + this.userId)
+            .subscribe((user) => {
+                return this.user = user
+            });
+
+        this.emailForm.reset();
     }
 
     validateEmail(controls) {

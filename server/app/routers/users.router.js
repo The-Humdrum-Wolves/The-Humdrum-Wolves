@@ -4,7 +4,23 @@ const { ObjectID } = require('mongodb');
 const attachTo = (app, data) => {
     const router = new Router();
 
-    router.post('/', (req, res) => {
+    router
+    .post('/update/:id', (req, res) => {
+        const id = req.params.id;
+        const createUser = {
+            _id: new ObjectID(id),
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            fullName: req.body.fullName,
+            age: req.body.age
+        }
+
+        data.users.updateById(createUser);
+
+        res.send('done');
+    })
+    .post('/', (req, res) => {
         // TODO: Add validation
         // TODO: Move to separate controller
         const createUser = {
