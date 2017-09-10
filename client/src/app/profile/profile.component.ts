@@ -91,9 +91,7 @@ export class ProfileComponent implements OnInit {
             password: this.user.password,
             fullName: this.user.fullName,
             age: this.user.age
-        }
-
-        this.user.username = body.username;
+        }        
 
         this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
             .subscribe();
@@ -103,7 +101,7 @@ export class ProfileComponent implements OnInit {
         this.http.get('http://localhost:3000/users/' + this.userId)
             .subscribe((user) => {
                 return this.user = user
-            });        
+            });   
     }
 
     onChangeFullName() {
@@ -114,8 +112,6 @@ export class ProfileComponent implements OnInit {
             fullName: this.fullNameForm.controls.fullName.value,
             age: this.user.age
         }
-
-        this.user.fullName = body.fullName;
 
         this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
             .subscribe();
@@ -136,8 +132,6 @@ export class ProfileComponent implements OnInit {
             fullName: this.user.fullName,
             age: this.user.age
         }
-
-        this.user.email = body.email;
 
         this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
             .subscribe();
