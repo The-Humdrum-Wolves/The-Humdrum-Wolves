@@ -7,10 +7,8 @@
             <li><a href="#/">Home</a></li>
             <li *ngIf="authCheck.isAuthenticated()"><a href="#/ranking">Ranking</a></li>
             <li *ngIf="authCheck.isAuthenticated()"><a href="#/play">Play</a></li>
-            <li *ngIf="authCheck.isAuthenticated()"><a href="#/favorites">Favorites</a></li>
             <li><a href="#/teams">Popular Teams</a></li>            
             <li *ngIf="authCheck.isAuthenticated()"><a href="#/rules">Rules</a></li>
-            <li *ngIf="authCheck.isAuthenticated()"><a href="#/players">Players</a></li>                       
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li *ngIf="!authCheck.isAuthenticated()"><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
