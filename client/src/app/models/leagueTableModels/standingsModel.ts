@@ -1,3 +1,4 @@
+import { StatisticsModel } from './statisticsModel';
 export class StandingsModel {
     position: number;
     teamName: string;
@@ -10,5 +11,8 @@ export class StandingsModel {
     wins: number;
     draws: number;
     losses: number;
+
+    home: StatisticsModel;
+    away: StatisticsModel;
 
 }
