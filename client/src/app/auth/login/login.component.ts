@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 import { AuthCheckService } from "../authCheck/auth-check.service";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'hw-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private http: HttpClient,
-        private authCheck: AuthCheckService
+        private authCheck: AuthCheckService,
+        private router: Router
     ) {}
 
     createForm() {
@@ -46,6 +48,8 @@ export class LoginComponent implements OnInit {
                 this.authCheck.setIdToken(res.id);
                 console.log(this.authCheck.isAuthenticated());                
             });
+        
+        this.router.navigate(['/home']);
     }
 
     validateEmail(controls) {
