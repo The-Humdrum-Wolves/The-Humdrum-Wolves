@@ -13,6 +13,7 @@ import { ChampionshipRankingsService } from "./../home.service";
 export class HomeComponent implements OnInit {
     private championships;
     loading: boolean;
+    
     constructor(private championshipRankingsService: ChampionshipRankingsService) { }
     ngOnInit() {
         this.loading = true;
