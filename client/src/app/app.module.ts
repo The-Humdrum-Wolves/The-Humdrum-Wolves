@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RankingComponent } from './components/ranking/ranking.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { ChampionshipRankingsService } from './components/home/home.service';
 import { AuthCheckService } from './auth/authCheck/auth-check.service';
@@ -25,7 +26,8 @@ import { AuthGuardService } from './auth/authGuard/auth-guard.service';
     AppComponent,
     HomeComponent,
     RulesComponent,
-    RankingComponent
+    RankingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

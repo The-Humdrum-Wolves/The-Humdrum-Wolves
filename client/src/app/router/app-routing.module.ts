@@ -11,6 +11,7 @@ import { TeamsComponent } from './../footballTeams/teams/teams.component';
 import { PlayersComponent } from './../footballTeams/players/players.component';
 import { PlayComponent } from './../play/play.component';
 import { SingleTeamComponent } from './../footballTeams/single-team/single-team.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 import { AuthGuardService } from '../auth/authGuard/auth-guard.service';
 
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]  },
     { path: 'rules', component: RulesComponent, canActivate: [AuthGuardService] },
     { path: 'ranking', component: RankingComponent, canActivate: [AuthGuardService] },
     { path: 'play', component: PlayComponent, canActivate: [AuthGuardService] },

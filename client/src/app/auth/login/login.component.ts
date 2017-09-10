@@ -45,8 +45,7 @@ export class LoginComponent implements OnInit {
 
         this.http.post('http://localhost:3000/auth/sign-in', body)
             .subscribe((res:{ id: string; }) => {
-                this.authCheck.setIdToken(res.id);
-                console.log(this.authCheck.isAuthenticated());                
+                this.authCheck.setIdToken(res.id);             
             });
         
         this.router.navigate(['/home']);

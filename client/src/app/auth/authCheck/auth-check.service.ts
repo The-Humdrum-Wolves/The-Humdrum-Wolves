@@ -12,6 +12,10 @@ export class AuthCheckService {
         }
     }
 
+    getIdToken() {
+        return this.idToken;
+    }
+
     setIdToken(idToken:string) {
         this.idToken = idToken;
     }
