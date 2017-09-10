@@ -18,6 +18,7 @@ import { RankingComponent } from './components/ranking/ranking.component';
 import { ChampionshipRankingsService } from './components/home/home.service';
 import { AuthCheckService } from './auth/authCheck/auth-check.service';
 import { LogoutService } from './auth/logout/logout.service';
+import { AuthGuardService } from './auth/authGuard/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LogoutService } from './auth/logout/logout.service';
   providers: [
     ChampionshipRankingsService, 
     AuthCheckService,
-    LogoutService
+    LogoutService,
+    AuthGuardService
   ],
 
   bootstrap: [AppComponent]

@@ -12,16 +12,18 @@ import { PlayersComponent } from './../footballTeams/players/players.component';
 import { PlayComponent } from './../play/play.component';
 import { SingleTeamComponent } from './../footballTeams/single-team/single-team.component';
 
+import { AuthGuardService } from '../auth/authGuard/auth-guard.service';
+
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'rules', component: RulesComponent },
-    { path: 'ranking', component: RankingComponent },
-    { path: 'play', component: PlayComponent },
-    { path: 'teams', component: TeamsComponent },
-    { path: 'team/:id', component: SingleTeamComponent },
-    { path: 'team/:id/players', component: PlayersComponent },    
+    { path: 'rules', component: RulesComponent, canActivate: [AuthGuardService] },
+    { path: 'ranking', component: RankingComponent, canActivate: [AuthGuardService] },
+    { path: 'play', component: PlayComponent, canActivate: [AuthGuardService] },
+    { path: 'teams', component: TeamsComponent},
+    { path: 'team/:id', component: SingleTeamComponent, canActivate: [AuthGuardService] },
+    { path: 'team/:id/players', component: PlayersComponent, canActivate: [AuthGuardService] },    
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent },
   ];
