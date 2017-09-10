@@ -2,65 +2,39 @@
 
 <div class="container">
   <div class="row">
-    <h1 class="text-center text-danger">{{championshipRankings.leagueCaption}}</h1>
+    <h1 class="text-center text-danger">{{leagueName}}</h1>
     <img class="img-responsive center-block" src="./../../../../assets/images/Championships/{{idFromUrl}}.png" width="20%" onError="this.src='./../../../assets/images/noImageAvailable.png'"/>
     <hr />
-    <div class="center">
-        <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
-    </div>
-    <!-- <h3 class="text-center">Past comps</h3> -->
-    <table class="table table-bordered">
-        <thead class="tableHead">
+    <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
+    <table *appHideElement="!statistics" class="table table-bordered">
+        <thead>
             <tr>
               <th class="text-center">Position</th>
-              <th class="text-center">Emblem</th>
+              <th class="text-center">Logo</th>
               <th class="text-center">Team</th>
               <th class="text-center">Played Games</th>
               <th class="text-center">Points</th>
-              <th class="text-center">Goals</th>
+              <th class="text-center">Scored Goals</th>
               <th class="text-center">Goals Against</th>
-              <th class="text-center">Goal Difference</th>  
-              <!-- <th class="text-center">Wins</th>
-              <th class="text-center">Draws</th>
-              <th class="text-center">Loses</th> -->
+              <th class="text-center">Goals Difference</th>
             </tr>
         </thead>
-        <!-- <tbody *ngFor="let comp of championshipRankings.standing">
-            <tr width="40%">
-              <td class="small">{{comp.rank}}</td>
-              <td width="15%"><img class="img-responsive center-block" src="{{comp.crestURI}}" width="40%" onError="this.src='./../../../../assets/images/noImageAvailable.png'"/></td>
-              <td class="bold" *ngIf="comp.team !== 'null'; else elseBlock" >{{comp.team}}</td>
-              <ng-template #elseBlock>No info available</ng-template>
-              <td class="small">{{comp.playedGames}}</td>
-              <td class="small">{{comp.points}}</td>
-              <td class="small">{{comp.goals}}</td>
-              <td class="small">{{comp.goalsAgainst}}</td>
-              <td class="small">{{comp.goalDifference}}</td>
-              
-              <td>{{comp.wins}}</td>
-              <td>{{comp.draws}}</td>
-              <td>{{comp.loses}}</td>
-            </tr>
-          </tbody> -->
-      <tbody *ngFor="let comp of championshipRankings.standing">
-        <tr width="40%">
-          <td class="small">{{comp.rank}}</td>
-          <td width="15%"><img class="img-responsive center-block" src="{{comp.crestURI}}" width="40%" onError="this.src='./../../../../assets/images/noImageAvailable.png'"/></td>
-          <td class="bold" *ngIf="comp.team">{{comp.team}}</td>
-          <td class="bold" *ngIf="!comp.team">No info available</td>
-          <!-- <ng-template #elseBlock>No info available</ng-template> -->
-          <td class="small">{{comp.playedGames}}</td>
-          <td class="small">{{comp.points}}</td>
-          <td class="small">{{comp.goals}}</td>
-          <td class="small">{{comp.goalsAgainst}}</td>
-          <td class="small">{{comp.goalDifference}}</td>
-          <!-- <td>{{comp.wins}}</td>
-          <td>{{comp.draws}}</td>
-          <td>{{comp.loses}}</td> -->
+      <tbody *ngFor="let comp of statistics">
+        <tr>
+          <td appAlignMiddleAndCenter *ngIf="comp.rank; else NoDataTemplate">{{comp.rank}}</td>
+          <td appAlignMiddleAndCenter *ngIf="comp.crestURI; else NoDataTemplate" width="25%"><img class="img-responsive center-block" src="{{comp.crestURI}}" width="20%" onError="this.src='./../../../../assets/images/noImageAvailable.png'"/></td>
+          <td appAlignMiddleAndCenter *ngIf="comp.team; else NoDataTemplate">{{comp.team}}</td>
+          <td appAlignMiddleAndCenter *ngIf="comp.playedGames; else NoDataTemplate">{{comp.playedGames}}</td>
+          <td appAlignMiddleAndCenter *ngIf="comp.points; else NoDataTemplate"><strong>{{comp.points}}</strong></td>
+          <td appAlignMiddleAndCenter *ngIf="comp.goals; else NoDataTemplate">{{comp.goals}}</td>
+          <td appAlignMiddleAndCenter *ngIf="comp.goalsAgainst; else NoDataTemplate">{{comp.goalsAgainst}}</td>
+          <td appAlignMiddleAndCenter *ngIf="comp.goalDifference; else NoDataTemplate">{{comp.goalDifference}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <a href="#/home" class="btn btn-warning btn-md pull-right">Go back to Home page</a>
 </div>
+<ng-template #NoDataTemplate>
+  <td appAlignMiddleAndCenter><strong>No Data</strong></td>
+</ng-template>
 
