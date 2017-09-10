@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
+import { AuthCheckService } from "../authCheck/auth-check.service";
 
 @Component({
     selector: 'hw-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private http: HttpClient
+        private http: HttpClient,
+        private authCheck: AuthCheckService
     ) {}
 
     createForm() {
@@ -37,10 +39,12 @@ export class LoginComponent implements OnInit {
             email: this.loginForm.controls.email.value,
             password: this.loginForm.controls.password.value
         }
-
+        console.log(body)
         this.loginForm.reset();
         return this.http.post('http://localhost:3000/auth/sign-in', body)
-            .subscribe(res => console.log(res));
+            .subscribe((res:{ id: string; }) => {
+                this.authCheck.setIdToken(res.id);
+            });
     }
 
     validateEmail(controls) {
