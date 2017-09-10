@@ -9,21 +9,24 @@ import { SortByJerseyNumberPipe } from './players/sortByJerseyNumber.pipe';
 
 import { TopTeamsService } from './services/teams.service';
 import { PlayersService } from './services/players.service';
+import { AllLeagueTeamsComponent } from './allLeagueTeams/allLeagueTeams.component';
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     TeamsComponent, 
     SingleTeamComponent, 
     PlayersComponent,
     SortByJerseyNumberPipe,
-  ],
+    AllLeagueTeamsComponent
+],
   exports: [
     TeamsComponent,
     SingleTeamComponent,
-    PlayersComponent
+    PlayersComponent,
+    AllLeagueTeamsComponent
   ],
   providers: [
     PlayersService, TopTeamsService

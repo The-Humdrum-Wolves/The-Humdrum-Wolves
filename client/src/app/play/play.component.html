@@ -3,10 +3,10 @@
   <h2 class="text-center">All Upcoming Fixtures</h2>
   <hr />
   <div class="center">
-  <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
+    <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
   </div>
   <table class="table table-bordered">
-    <thead [hidden]="loading">
+    <thead *appHideElement="loading">
       <tr>
         <th class="text-center">Date</th>
         <th class="text-center">Home Team</th>
@@ -19,13 +19,13 @@
     </thead>
     <tbody *ngFor="let singleFixture of allMatches">
       <tr>
-        <td class = "text-center centerText">{{singleFixture.date | formatFixtureDate}}</td>
-        <td class = "text-center centerText" >{{singleFixture.homeTeamName}}</td>
-        <td class = "text-center centerText ">-</td>
-        <td class = "text-center centerText">{{singleFixture.awayTeamName}}</td>
-        <td><button class="btn btn-primary btn-md hundredWidth">Winner</button></td>
-        <td><button class="btn btn-warning btn-md hundredWidth">Draw</button></td>
-        <td><button class="btn btn-primary btn-md hundredWidth">Winner</button></td>        
+        <td class="text-center centerText">{{singleFixture.date | formatFixtureDate}}</td>
+        <td class="text-center centerText">{{singleFixture.homeTeamName}}</td>
+        <td class="text-center centerText ">-</td>
+        <td class="text-center centerText">{{singleFixture.awayTeamName}}</td>
+        <td><button class="btn btn-primary btn-md hundredWidth" disabled>Future Feature</button></td>
+        <td><button class="btn btn-warning btn-md hundredWidth" disabled>Future Feature</button></td>
+        <td><button class="btn btn-primary btn-md hundredWidth" disabled>Future Feature</button></td>
       </tr>
     </tbody>
   </table>

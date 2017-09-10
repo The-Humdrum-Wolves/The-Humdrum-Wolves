@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PlayService } from './play.service';
 
 @Component({
@@ -8,10 +9,9 @@ import { PlayService } from './play.service';
 })
 export class PlayComponent implements OnInit {
 
-  allMatches;
+  private allMatches;
   loading: boolean = false;
   constructor(private playService: PlayService) { }
-
   ngOnInit() {
     
     this.loading = true;

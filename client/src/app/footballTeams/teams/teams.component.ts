@@ -1,6 +1,7 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { TopTeamsService } from './../services/teams.service';
 import { Component, OnInit } from '@angular/core';
+
+import { TopTeamsService } from './../services/teams.service';
 
 @Component({
   selector: 'app-teams',
@@ -8,15 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
-
-  
-  public teams;
+  private teams;
+  loading: boolean = false;
   constructor(private topTeams: TopTeamsService) { }
 
   ngOnInit() {
+    this.loading = true;
+
     this.topTeams
         .getAll()
-        .subscribe(info => this.teams = info.teams);
+        .subscribe(info => {
+          this.teams = info.teams,
+          this.loading = false;
+        }, () => this.loading = false);
   }
 
   a() {
