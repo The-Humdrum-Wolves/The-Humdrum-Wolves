@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]  },
+    //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]  },
     { path: 'rules', component: RulesComponent, canActivate: [AuthGuardService] },
     { path: 'ranking', component: RankingComponent, canActivate: [AuthGuardService] },
     { path: 'play', component: PlayComponent, canActivate: [AuthGuardService] },

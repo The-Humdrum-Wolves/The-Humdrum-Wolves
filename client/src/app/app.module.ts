@@ -4,6 +4,7 @@ import { AppRoutingModule } from './router/app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AuthModule } from './auth/auth.module';
+import { ProfileModule } from './profile/profile.module'
 import { PlayModule } from './play/play.module';
 import { HomeModule } from './home/home.module';
 import { FootballTeamsModule } from './footballTeams/football-teams.module';
@@ -16,7 +17,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component/home.component';
 import { RulesComponent } from './rules/rules.component';
 import { RankingComponent } from './ranking/ranking.component';
-import { ProfileComponent } from './profile/profile.component';
 
 import { ChampionshipRankingsService } from './home/home.service';
 import { AuthCheckService } from './auth/authCheck/auth-check.service';
@@ -28,11 +28,11 @@ import { AuthGuardService } from './auth/authGuard/auth-guard.service';
   declarations: [
     AppComponent,
     RulesComponent,
-    RankingComponent,
-    ProfileComponent
+    RankingComponent
   ],
   imports: [
     BrowserModule,
+    ProfileModule,
     AppRoutingModule,
     AuthModule,
     SharedModule,
