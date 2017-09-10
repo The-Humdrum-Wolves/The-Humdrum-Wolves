@@ -6,6 +6,7 @@ const init = (data) => {
 
     // Config application
     app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
     require('../config/auth.config')(app, data);
 
     // add routers
