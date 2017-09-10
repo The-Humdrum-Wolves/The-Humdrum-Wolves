@@ -39,11 +39,12 @@ export class LoginComponent implements OnInit {
             email: this.loginForm.controls.email.value,
             password: this.loginForm.controls.password.value
         }
-        console.log(body)
         this.loginForm.reset();
-        return this.http.post('http://localhost:3000/auth/sign-in', body)
+
+        this.http.post('http://localhost:3000/auth/sign-in', body)
             .subscribe((res:{ id: string; }) => {
                 this.authCheck.setIdToken(res.id);
+                console.log(this.authCheck.isAuthenticated());                
             });
     }
 

@@ -15,4 +15,8 @@ export class AuthCheckService {
     setIdToken(idToken:string) {
         this.idToken = idToken;
     }
+
+    setNull() {
+        this.idToken = null;
+    }
 }

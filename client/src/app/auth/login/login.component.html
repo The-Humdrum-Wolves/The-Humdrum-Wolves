@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-xs-6">
                     <div class="well">
-                        <form id="loginForm" method="POST" [formGroup]="loginForm" (submit)="onLoginSubmit()">
+                        <form id="loginForm" [formGroup]="loginForm" (submit)="onLoginSubmit(); $event.preventDefault();">
                             <div class="form-group" [ngClass]="{'has-error': (loginForm.controls.email.errors && loginForm.controls.email.dirty),
                             'has-success': !loginForm.controls.email.errors}">
                                 <label for="email" class="control-label">E-mail</label>

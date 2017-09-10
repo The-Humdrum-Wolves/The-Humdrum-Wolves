@@ -17,6 +17,7 @@ import { RankingComponent } from './components/ranking/ranking.component';
 
 import { ChampionshipRankingsService } from './components/home/home.service';
 import { AuthCheckService } from './auth/authCheck/auth-check.service';
+import { LogoutService } from './auth/logout/logout.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,11 @@ import { AuthCheckService } from './auth/authCheck/auth-check.service';
     ReactiveFormsModule
   ],
 
-  providers: [ChampionshipRankingsService, AuthCheckService],
+  providers: [
+    ChampionshipRankingsService, 
+    AuthCheckService,
+    LogoutService
+  ],
 
   bootstrap: [AppComponent]
 })
