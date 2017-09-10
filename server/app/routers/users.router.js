@@ -17,7 +17,7 @@ const attachTo = (app, data) => {
 
         data.users.create(user);
 
-        res.send(`User ${user.username} created successfully`);
+        res.json({message: "Registration complete"});
     })
     .get('/:id', (req, res) => {
         const id = req.params.id;

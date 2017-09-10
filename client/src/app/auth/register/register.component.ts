@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
     selector: 'hw-register',
@@ -12,7 +13,8 @@ export class RegisterComponent implements OnInit {
     formControls;
 
     constructor(
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private http: HttpClient
     ) {
         this.createForm();  
     }
@@ -54,7 +56,15 @@ export class RegisterComponent implements OnInit {
     }
 
     onRegisterSubmit() {
-        console.log(this.regForm);
+        const body = {
+            username: this.regForm.controls.username.value,
+            email: this.regForm.controls.email.value,
+            password: this.regForm.controls.password.value,
+            fullName: this.regForm.controls.fullName.value,
+            age: this.regForm.controls.age.value            
+        }
+        this.regForm.reset();
+        return this.http.post('http://localhost:3000/users', body).subscribe(res => console.log(res));
     }
 
     validateEmail(controls) {
