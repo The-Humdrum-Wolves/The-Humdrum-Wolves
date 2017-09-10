@@ -5,7 +5,7 @@
     <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
     
     <div class="row">
-      <div *ngFor="let team of teams; let i = index">
+      <div *ngFor="let team of teams">
         <a href="#/team/{{team.id}}" style="text-decoration: none; color: initial">
           <div *ngIf="team.crestUrl !== null" class="col-md-3 col-sm-6">
             <div class="pricingTable" style="height: 300px; cursor: pointer">

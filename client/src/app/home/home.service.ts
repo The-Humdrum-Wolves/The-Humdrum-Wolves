@@ -15,11 +15,7 @@ import { ApiHelpers } from "../apiHelpers/apiHelpers";
     private competitionUrls;
     private competitionId;
     
-    private headers: Headers = new Headers({
-        'X-Auth-Token': 'ca9d984a4c1e4042b295f4eaa19b122e',
-        'Content-Type': 'text/plain',
-        'X-Response-Control': 'minified'
-    });
+    private headers: Headers = new Headers(ApiHelpers.getHeaders());
 
     constructor(private http: Http) {}
     getAll(): Observable<HomePageModel> {
