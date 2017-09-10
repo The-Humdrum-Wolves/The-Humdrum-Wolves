@@ -16,8 +16,6 @@ const attachTo = (app, data) => {
                 return res.send('Signed in');
             });
         })(req, res, next);
-
-        //res.send("Signed in");
     })
     .get('/logout', (req, res) => {
         console.log('from logout');
