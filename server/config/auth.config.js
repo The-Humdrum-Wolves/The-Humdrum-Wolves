@@ -37,11 +37,9 @@ const configAuth = (app, { users }) => {
         done(null, user.username);
     });
     
-    passport.deserializeUser((username, done) => {
-        console.log('Deserialzie 1');        
+    passport.deserializeUser((username, done) => {     
         return users.findByUsername(username)
             .then((user) => {
-                console.log('Deserialzie 2');
                 done(null, user);
             })
             .catch(done);         

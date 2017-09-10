@@ -21,7 +21,6 @@ const attachTo = (app, data) => {
     })
     .get('/:id', (req, res) => {
         const id = req.params.id;
-        console.log(new ObjectID(id));
         data.users.findById(new ObjectID(id))
             .then(user => res.json(user));
     });

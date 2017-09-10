@@ -9,12 +9,6 @@ const init = (data) => {
     app.use(bodyParser.urlencoded({ extended: true }));
     require('../config/auth.config')(app, data);
 
-    app.use((req, res, next) => {
-        console.log(' --- user');
-        console.log(req.user);
-        next();
-    });
-
     // add routers
     require('./routers').attachTo(app, data);
 
