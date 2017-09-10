@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
             ])],
             password: ['', Validators.compose([
                 Validators.required,
-                //Validators.minLength(8),
-                //Validators.maxLength(30),
-                //this.validatePassword
+                Validators.minLength(8),
+                Validators.maxLength(30),
+                this.validatePassword
             ])]
         })
     }
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
             password: this.loginForm.controls.password.value
         }
 
-        //this.loginForm.reset();
+        this.loginForm.reset();
         return this.http.post('http://localhost:3000/auth/sign-in', body)
             .subscribe(res => console.log(res));
     }
