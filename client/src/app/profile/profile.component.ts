@@ -76,12 +76,12 @@ export class ProfileComponent implements OnInit {
         this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
             .subscribe();
 
+        this.passwordForm.reset();
+            
         this.http.get('http://localhost:3000/users/' + this.userId)
             .subscribe((user) => {
                 return this.user = user
             });
-
-        this.passwordForm.reset();
     }
 
     onChangeUsername() {
@@ -96,12 +96,12 @@ export class ProfileComponent implements OnInit {
         this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
             .subscribe();
 
+        this.usernameForm.reset();
+
         this.http.get('http://localhost:3000/users/' + this.userId)
             .subscribe((user) => {
                 return this.user = user
-            });
-
-        this.usernameForm.reset();
+            });        
     }
 
     onChangeFullName() {
@@ -116,12 +116,12 @@ export class ProfileComponent implements OnInit {
         this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
             .subscribe();
 
+        this.fullNameForm.reset();        
+
         this.http.get('http://localhost:3000/users/' + this.userId)
             .subscribe((user) => {
                 return this.user = user
             });
-
-        this.fullNameForm.reset();
     }
 
     onChangeEmail() {
@@ -136,12 +136,12 @@ export class ProfileComponent implements OnInit {
         this.http.post('http://localhost:3000/users/update/' + this.authCheck.getIdToken(), body)
             .subscribe();
 
+        this.emailForm.reset();
+
         this.http.get('http://localhost:3000/users/' + this.userId)
             .subscribe((user) => {
                 return this.user = user
-            });
-
-        this.emailForm.reset();
+            });        
     }
 
     validateEmail(controls) {
