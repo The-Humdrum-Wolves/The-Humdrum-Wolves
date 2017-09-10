@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { ObjectID } = require('mongodb');
 
 const attachTo = (app, data) => {
     const router = new Router();
@@ -18,11 +19,11 @@ const attachTo = (app, data) => {
 
         res.send(`User ${user.username} created successfully`);
     })
-    .get('/:username', (req, res) => {
-        const username = req.params.username;
-
-        data.users.findByUsername(username)
-            .then(user => res.send(user));
+    .get('/:id', (req, res) => {
+        const id = req.params.id;
+        console.log(new ObjectID(id));
+        data.users.findById(new ObjectID(id))
+            .then(user => res.json(user));
     });
 
     app.use('/users', router);

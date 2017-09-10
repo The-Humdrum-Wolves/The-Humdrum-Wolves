@@ -13,7 +13,7 @@ const attachTo = (app, data) => {
                 req.user = user;
                 console.log(2);
                 console.log(req.user);
-                return res.send('Signed in');
+                return res.json({ id: req.user._id });
             });
         })(req, res, next);
     })

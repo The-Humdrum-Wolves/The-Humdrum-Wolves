@@ -30,9 +30,9 @@ class UserData extends BaseData {
         });
     }
 
-    findById(id) {
+    findById(_id) {
         return this.collection
-            .findOne({ id });
+            .findOne({ _id });
     }
 
     checkPassword(username, password) {
