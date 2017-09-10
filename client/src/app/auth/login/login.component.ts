@@ -25,15 +25,22 @@ export class LoginComponent implements OnInit {
             ])],
             password: ['', Validators.compose([
                 Validators.required,
-                Validators.minLength(8),
-                Validators.maxLength(30),
-                this.validatePassword
+                //Validators.minLength(8),
+                //Validators.maxLength(30),
+                //this.validatePassword
             ])]
         })
     }
 
     onLoginSubmit(){
-        console.log(this.loginForm.controls);
+        const body = {
+            email: this.loginForm.controls.email.value,
+            password: this.loginForm.controls.password.value
+        }
+
+        //this.loginForm.reset();
+        return this.http.post('http://localhost:3000/auth/sign-in', body)
+            .subscribe(res => console.log(res));
     }
 
     validateEmail(controls) {

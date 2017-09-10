@@ -14,7 +14,6 @@ const configAuth = (app, { users }) => {
                     if(user.password !== password) {
                         done(new Error('Invalid password'));
                     }
-
                     return done(null, user);
                 })
                 .catch((err) => {
