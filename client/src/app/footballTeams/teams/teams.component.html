@@ -1,8 +1,11 @@
 <div class="demo">
   <div class="container">
     <button (click)="a()">Use this button to console log whole received object</button>
+
+    <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
+    
     <div class="row">
-      <div *ngFor="let team of teams; let i = index">
+      <div *ngFor="let team of teams">
         <a href="#/team/{{team.id}}" style="text-decoration: none; color: initial">
           <div *ngIf="team.crestUrl !== null" class="col-md-3 col-sm-6">
             <div class="pricingTable" style="height: 300px; cursor: pointer">
@@ -15,29 +18,7 @@
             </div>
           </div>
         </a>
-
       </div>
-      <!-- <div class="col-md-3 col-sm-6">
-        <div class="pricingTable green">
-          <div class="pricingTable-header">
-            <i class="fa fa-briefcase"></i>
-            <div class="price-value"> $20.00 <span class="month">per month</span> </div>
-          </div>
-          <h3 class="heading">Business</h3>
-          <div class="pricing-content">
-            <ul>
-              <li><b>60GB</b> Disk Space</li>
-              <li><b>60</b> Email Accounts</li>
-              <li><b>60GB</b> Monthly Bandwidth</li>
-              <li><b>15</b> subdomains</li>
-              <li><b>20</b> Domains</li>
-            </ul>
-          </div>
-          <div class="pricingTable-signup">
-            <a href="#">sign up</a>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 export class ApiHelpers {
-    static baseUrl = 'http://api.football-data.org/v1';
+    static baseUrl: string = 'http://api.football-data.org/v1';
 
     static mainRoutes = {
         competitions: <string>'/competitions',
@@ -25,35 +25,34 @@ export class ApiHelpers {
         championsLeague: <number>464
     }
 
-    // The X-Response-Control can be either full, minified or compressed
-    static getHeaders(contentType, authToken, responseControl){
+    static getHeaders(): Object{
         return {
-            'Content-type': <string> contentType,
-            'X-Auth-Token': <string> authToken,
-            'X-Response-Control': <string> responseControl
+            'Content-type': <string> 'text/plain',
+            'X-Auth-Token': <string> 'ca9d984a4c1e4042b295f4eaa19b122e',
+            'X-Response-Control': <string> 'minified'
         }
     }
 
-    static competitionUrls(id?: number) {
+    static competitionUrls(id?: number): Object | string {
         if (id) {
             return {
-                competitionTeams: this.baseUrl + this.mainRoutes.competitions + `/${id}` + this.mainRoutes.teams,
-                competitionLeagueTable: this.baseUrl + this.mainRoutes.competitions + `/${id}/leagueTable`,
-                competitionFixtures: this.baseUrl + this.mainRoutes.competitions + `/${id}` + this.mainRoutes.fixtures
+                competitionTeams: <string> this.baseUrl + this.mainRoutes.competitions + `/${id}` + this.mainRoutes.teams,
+                competitionLeagueTable: <string> this.baseUrl + this.mainRoutes.competitions + `/${id}/leagueTable`,
+                competitionFixtures: <string> this.baseUrl + this.mainRoutes.competitions + `/${id}` + this.mainRoutes.fixtures
             }
         }
 
         // If no id provided return all competitions url http://api.football-data.org/v1/competitions
-        return this.baseUrl + this.mainRoutes.competitions;
+        return this.baseUrl + this.mainRoutes.competitions + '?season=2017';
     }
 
-    static otherUrls(id?: number) {
+    static otherUrls(id?: number): Object | string {
         if (id) {
             return {
-                oneFixture: this.baseUrl + this.mainRoutes.fixtures + `/${id}`,
-                allFixturesCertainTeam: this.baseUrl + this.mainRoutes.teams + `/${id}` + this.mainRoutes.fixtures,
-                oneTeam: this.baseUrl + this.mainRoutes.teams + `/${id}`,
-                allPlayersCertainTeam: this.baseUrl + this.mainRoutes.teams + `/${id}/players`
+                oneFixture: <string> this.baseUrl + this.mainRoutes.fixtures + `/${id}`,
+                allFixturesCertainTeam: <string> this.baseUrl + this.mainRoutes.teams + `/${id}` + this.mainRoutes.fixtures,
+                oneTeam: <string> this.baseUrl + this.mainRoutes.teams + `/${id}`,
+                allPlayersCertainTeam: <string> this.baseUrl + this.mainRoutes.teams + `/${id}/players`
             }
         }
 

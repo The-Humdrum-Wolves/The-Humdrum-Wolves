@@ -1,5 +1,8 @@
 .panel:hover {
     box-shadow: 0px 0px 30px rgba(63, 156, 215, 0.20);
+}
+
+.panel-heading{
     cursor: pointer;
 }
 .panel-heading img{
@@ -41,4 +44,20 @@
     .carousel-caption h1{
         font-size: initial;
     }
+}
+
+img {
+    mix-blend-mode: multiply;
+    width: 100%;
+}
+
+.champTitle{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+label{
+    font-weight: initial;
+    font-size: 15px;
 }

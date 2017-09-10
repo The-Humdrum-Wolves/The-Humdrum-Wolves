@@ -1,8 +1,8 @@
-import { ClientPage } from './../../../../e2e/app.po';
+import { SingleTeamFixturesModel } from './../../models/singleTeamFixturesModels/singleTeamFixturesModel';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TopTeamsService } from './../../services/teams.service';
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
+
+import { TopTeamsService } from './../services/teams.service';
 
 @Component({
   selector: 'app-single-team',
@@ -10,20 +10,25 @@ import * as moment from 'moment';
   styleUrls: ['./single-team.component.css']
 })
 export class SingleTeamComponent implements OnInit {
-  teamFixtures;
+  private teamFixtures;
   idFromUrl: number = parseInt(this.route.snapshot.params['id']);
-  foundTeam;
+  private foundTeam;
 
   constructor(private topTeams: TopTeamsService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {
+
     this.topTeams
       .getTeamFixturesByTeamId(this.idFromUrl)
-      .subscribe(teamFixtures => this.teamFixtures = teamFixtures.fixtures);
+      .subscribe(teamFixtures => {
+          this.teamFixtures = teamFixtures.fixtures;          
+      });
 
-// to do when get only one object from observable subscription in html foundTeam.name has error in console but displays the name
     this.topTeams
       .getOneTeamById(this.idFromUrl)
-      .subscribe(getTeam => this.foundTeam = getTeam)
+      .subscribe(getTeam => {
+          this.foundTeam = getTeam;
+      });
+
   }
   a() {
     console.log(this.foundTeam);

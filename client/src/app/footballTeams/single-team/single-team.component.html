@@ -1,18 +1,21 @@
-<button (click)="  a()">Use this button to console log whole received object</button>
+<button (click)="a()">Use this button to console log whole received object</button>
 
 <div class="container">
   <div class="row">
-    <h1 class="text-center text-danger">{{foundTeam.name}}</h1>
-    <img class="img-responsive center-block" src="{{foundTeam.crestUrl}}" width="20%" />
-    <hr />
+    <div *ngIf="foundTeam">
+      <h1 class="text-center text-danger" appBoldItalic>{{foundTeam.name}}</h1>
+      <img class="img-responsive center-block" src="{{foundTeam.crestUrl}}" width="20%" />
+      <hr />
+      <a href="#/team/{{foundTeam.id}}/players" class="btn btn-primary btn-md pull-right">Team Players</a>
+    </div>
     <h3 class="text-center">Past Fixtures</h3>
     <table class="table table-bordered">
       <tbody *ngFor="let fixture of teamFixtures">
         <tr *ngIf="fixture.status === 'FINISHED'">
-          <td>{{fixture.homeTeamName}}</td>
+          <td [ngClass]="{'win': fixture.result.goalsHomeTeam > fixture.result.goalsAwayTeam}">{{fixture.homeTeamName}}</td>
           <td class="text-center">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</td>
-          <td>{{fixture.awayTeamName}}</td>
-          <td>{{fixture.date | date: 'medium'}}</td>
+          <td [ngClass]="{'win': fixture.result.goalsAwayTeam > fixture.result.goalsHomeTeam}">{{fixture.awayTeamName}}</td>
+          <td>{{fixture.date | formatFixtureDate}}</td>
         </tr>
       </tbody>
     </table>
@@ -22,14 +25,13 @@
     <table class="table table-bordered">
       <tbody *ngFor="let fixture of teamFixtures">
         <tr *ngIf="fixture.status === 'TIMED' || fixture.status === 'SCHEDULED'">
-            <td>{{fixture.homeTeamName}}</td>
+            <td [ngClass]="{'win': fixture.result.goalsHomeTeam > fixture.result.goalsAwayTeam}">{{fixture.homeTeamName}}</td>
             <td class="text-center">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</td>
-            <td>{{fixture.awayTeamName}}</td>
-            <td>{{fixture.date | date: 'medium'}}</td>
+            <td [ngClass]="{'win': fixture.result.goalsAwayTeam > fixture.result.goalsHomeTeam}">{{fixture.awayTeamName}}</td>
+            <td>{{fixture.date | formatFixtureDate}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <a href="#/teams" class="btn btn-warning btn-md pull-right">Go back to Popular teams page</a>
 </div>
 

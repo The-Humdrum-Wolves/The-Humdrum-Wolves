@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayService } from './../services/play.service';
+
+import { PlayService } from './play.service';
 
 @Component({
   selector: 'app-play',
@@ -8,11 +9,11 @@ import { PlayService } from './../services/play.service';
 })
 export class PlayComponent implements OnInit {
 
-  allMatches;
+  private allMatches;
   loading: boolean = false;
   constructor(private playService: PlayService) { }
-
   ngOnInit() {
+    
     this.loading = true;
 
     this.playService.getAllFixtures()

@@ -1,31 +1,25 @@
-import { PlayService } from './services/play.service';
-import { PlayersComponent } from './players/players.component';
-import { PlayComponent } from './play/play.component';
-import { FootballTeamsModule } from './footballTeams/football-teams.module';
-import { HttpModule } from '@angular/http';
-import { Error404Module } from './error404/error404.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './router/app-routing.module';
 
 import { AuthModule } from './auth/auth.module';
-import { AppComponent } from './app.component';
+import { PlayModule } from './play/play.module';
+import { HomeModule } from './home/home.module';
+import { FootballTeamsModule } from './footballTeams/football-teams.module';
+import { HttpModule } from '@angular/http';
+import { Error404Module } from './error404/error404.module';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './components/home/home.component';
-import { RulesComponent } from './components/rules/rules.component';
-import { RankingComponent } from './components/ranking/ranking.component';
 
-import { TopTeamsService } from './services/teams.service';
-import { ChampionshipRankingsService } from './components/home/home.service';
+import { PlayersComponent } from './footballTeams/players/players.component';
+import { AppComponent } from './app.component';
+import { RulesComponent } from './rules/rules.component';
+import { RankingComponent } from './ranking/ranking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     RulesComponent,
-    RankingComponent,
-    PlayComponent,
-    PlayersComponent
+    RankingComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +28,11 @@ import { ChampionshipRankingsService } from './components/home/home.service';
     SharedModule,
     Error404Module,
     HttpModule,
-    FootballTeamsModule
+    FootballTeamsModule,
+    PlayModule,
+    HomeModule
   ],
-  providers: [TopTeamsService, PlayService, ChampionshipRankingsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

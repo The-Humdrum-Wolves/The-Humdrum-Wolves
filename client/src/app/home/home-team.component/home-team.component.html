@@ -1,0 +1,66 @@
+<button (click)="  a()">Use this button to console log whole received object</button>
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center text-danger">{{championshipRankings.leagueCaption}}</h1>
+    <img class="img-responsive center-block" src="./../../../../assets/images/Championships/{{idFromUrl}}.png" width="20%" onError="this.src='./../../../assets/images/noImageAvailable.png'"/>
+    <hr />
+    <div class="center">
+        <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
+    </div>
+    <!-- <h3 class="text-center">Past comps</h3> -->
+    <table class="table table-bordered">
+        <thead class="tableHead">
+            <tr>
+              <th class="text-center">Position</th>
+              <th class="text-center">Emblem</th>
+              <th class="text-center">Team</th>
+              <th class="text-center">Played Games</th>
+              <th class="text-center">Points</th>
+              <th class="text-center">Goals</th>
+              <th class="text-center">Goals Against</th>
+              <th class="text-center">Goal Difference</th>  
+              <!-- <th class="text-center">Wins</th>
+              <th class="text-center">Draws</th>
+              <th class="text-center">Loses</th> -->
+            </tr>
+        </thead>
+        <!-- <tbody *ngFor="let comp of championshipRankings.standing">
+            <tr width="40%">
+              <td class="small">{{comp.rank}}</td>
+              <td width="15%"><img class="img-responsive center-block" src="{{comp.crestURI}}" width="40%" onError="this.src='./../../../../assets/images/noImageAvailable.png'"/></td>
+              <td class="bold" *ngIf="comp.team !== 'null'; else elseBlock" >{{comp.team}}</td>
+              <ng-template #elseBlock>No info available</ng-template>
+              <td class="small">{{comp.playedGames}}</td>
+              <td class="small">{{comp.points}}</td>
+              <td class="small">{{comp.goals}}</td>
+              <td class="small">{{comp.goalsAgainst}}</td>
+              <td class="small">{{comp.goalDifference}}</td>
+              
+              <td>{{comp.wins}}</td>
+              <td>{{comp.draws}}</td>
+              <td>{{comp.loses}}</td>
+            </tr>
+          </tbody> -->
+      <tbody *ngFor="let comp of championshipRankings.standing">
+        <tr width="40%">
+          <td class="small">{{comp.rank}}</td>
+          <td width="15%"><img class="img-responsive center-block" src="{{comp.crestURI}}" width="40%" onError="this.src='./../../../../assets/images/noImageAvailable.png'"/></td>
+          <td class="bold" *ngIf="comp.team">{{comp.team}}</td>
+          <td class="bold" *ngIf="!comp.team">No info available</td>
+          <!-- <ng-template #elseBlock>No info available</ng-template> -->
+          <td class="small">{{comp.playedGames}}</td>
+          <td class="small">{{comp.points}}</td>
+          <td class="small">{{comp.goals}}</td>
+          <td class="small">{{comp.goalsAgainst}}</td>
+          <td class="small">{{comp.goalDifference}}</td>
+          <!-- <td>{{comp.wins}}</td>
+          <td>{{comp.draws}}</td>
+          <td>{{comp.loses}}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="#/home" class="btn btn-warning btn-md pull-right">Go back to Home page</a>
+</div>
+
