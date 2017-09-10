@@ -20,8 +20,6 @@ import { AllLeagueTeamsComponent } from './../footballTeams/allLeagueTeams/allLe
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
-    //{ path: 'register', component: RegisterComponent },
-    //{ path: 'login', component: LoginComponent },
     { path: 'rules', component: RulesComponent, canActivate: [AuthGuardService] },
     { path: 'ranking', component: RankingComponent, canActivate: [AuthGuardService] },
     { path: 'play', component: PlayComponent, canActivate: [AuthGuardService] },
