@@ -6,6 +6,12 @@ class UserData extends BaseData {
         super(db, User);
     }
 
+    findByUsername(username) {
+        const userToLower = username.toLowerCase();
+        return this.collection
+            .findOne({ username });
+    }
+
     checkPassword(username, password) {
         return this.collection
             .findOne({ username })
