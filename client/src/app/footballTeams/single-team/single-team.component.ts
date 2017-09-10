@@ -13,20 +13,27 @@ export class SingleTeamComponent implements OnInit {
   private teamFixtures;
   idFromUrl: number = parseInt(this.route.snapshot.params['id']);
   private foundTeam;
+  loading: boolean = false;
 
   constructor(private topTeams: TopTeamsService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {
 
+    this.loading = true;
+
     this.topTeams
       .getTeamFixturesByTeamId(this.idFromUrl)
       .subscribe(teamFixtures => {
-          this.teamFixtures = teamFixtures.fixtures;          
+          this.teamFixtures = teamFixtures.fixtures;
+          this.loading = false;          
       });
-
+    if(!this.loading){
+      this.loading = true;
+    }
     this.topTeams
       .getOneTeamById(this.idFromUrl)
       .subscribe(getTeam => {
           this.foundTeam = getTeam;
+          this.loading = false;
       });
 
   }

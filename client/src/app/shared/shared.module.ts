@@ -6,8 +6,11 @@ import { HeaderComponent } from './header/header.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 import { FormatDatePipe } from './pipes/formatDate.pipe';
+
 import { BoldItalicDirective } from './directives/boldItalic.directive';
 import { HideElementDirective } from './directives/hideElement.directive';
+import { AlignMiddleAndCenterDirective } from './directives/alignMiddleAndCenter.directive';
+
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import { HideElementDirective } from './directives/hideElement.directive';
     LoadingSpinnerComponent,
     FormatDatePipe,
     BoldItalicDirective,
-    HideElementDirective
+    HideElementDirective,
+    AlignMiddleAndCenterDirective
 ],
   exports: [
     CommonModule,
@@ -29,7 +33,8 @@ import { HideElementDirective } from './directives/hideElement.directive';
     LoadingSpinnerComponent,
     FormatDatePipe,
     BoldItalicDirective,
-    HideElementDirective
+    HideElementDirective,
+    AlignMiddleAndCenterDirective
   ]
 })
 export class SharedModule { }

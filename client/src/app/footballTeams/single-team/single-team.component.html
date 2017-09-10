@@ -2,6 +2,8 @@
 
 <div class="container">
   <div class="row">
+    <app-loading-spinner [loading]="loading" class="text-center"></app-loading-spinner>
+
     <div *ngIf="foundTeam">
       <h1 class="text-center text-danger" appBoldItalic>{{foundTeam.name}}</h1>
       <img class="img-responsive center-block" src="{{foundTeam.crestUrl}}" width="20%" />
@@ -25,13 +27,12 @@
     <table class="table table-bordered">
       <tbody *ngFor="let fixture of teamFixtures">
         <tr *ngIf="fixture.status === 'TIMED' || fixture.status === 'SCHEDULED'">
-            <td [ngClass]="{'win': fixture.result.goalsHomeTeam > fixture.result.goalsAwayTeam}">{{fixture.homeTeamName}}</td>
-            <td class="text-center">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</td>
-            <td [ngClass]="{'win': fixture.result.goalsAwayTeam > fixture.result.goalsHomeTeam}">{{fixture.awayTeamName}}</td>
-            <td>{{fixture.date | formatFixtureDate}}</td>
+          <td [ngClass]="{'win': fixture.result.goalsHomeTeam > fixture.result.goalsAwayTeam}">{{fixture.homeTeamName}}</td>
+          <td class="text-center">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</td>
+          <td [ngClass]="{'win': fixture.result.goalsAwayTeam > fixture.result.goalsHomeTeam}">{{fixture.awayTeamName}}</td>
+          <td>{{fixture.date | formatFixtureDate}}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
