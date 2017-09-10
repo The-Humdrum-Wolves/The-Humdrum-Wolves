@@ -22,6 +22,7 @@ import { ChampionshipRankingsService } from './home/home.service';
 import { AuthCheckService } from './auth/authCheck/auth-check.service';
 import { LogoutService } from './auth/logout/logout.service';
 import { AuthGuardService } from './auth/authGuard/auth-guard.service';
+import { ConfigService } from './config/config.service';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { AuthGuardService } from './auth/authGuard/auth-guard.service';
     ChampionshipRankingsService, 
     AuthCheckService,
     LogoutService,
-    AuthGuardService
+    AuthGuardService,
+    ConfigService
   ],
   bootstrap: [AppComponent]
 })

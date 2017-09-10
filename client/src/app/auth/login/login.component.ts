@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
-import { AuthCheckService } from "../authCheck/auth-check.service";
 import { Router } from '@angular/router';
+
+import { AuthCheckService } from "../authCheck/auth-check.service";
+import { ConfigService } from "../../config/config.service";
 
 @Component({
     selector: 'hw-login',
@@ -16,7 +18,8 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private http: HttpClient,
         private authCheck: AuthCheckService,
-        private router: Router
+        private router: Router,
+        private config: ConfigService
     ) {}
 
     createForm() {
@@ -43,7 +46,7 @@ export class LoginComponent implements OnInit {
         }
         this.loginForm.reset();
 
-        this.http.post('http://localhost:3000/auth/sign-in', body)
+        this.http.post(this.config.serverUrl + '/auth/sign-in', body)
             .subscribe((res:{ id: string; }) => {
                 this.authCheck.setIdToken(res.id);             
             });

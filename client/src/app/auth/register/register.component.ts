@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
-import { AuthCheckService } from "../authCheck/auth-check.service";
 import { Router } from '@angular/router';
+
+import { AuthCheckService } from "../authCheck/auth-check.service";
+import { ConfigService } from "../../config/config.service";
 
 @Component({
     selector: 'hw-register',
@@ -18,7 +20,8 @@ export class RegisterComponent implements OnInit {
         private formBuilder: FormBuilder,
         private http: HttpClient,
         private authCheck: AuthCheckService,
-        private router: Router
+        private router: Router,
+        private config: ConfigService
     ) {
         this.createForm();  
     }
@@ -69,7 +72,7 @@ export class RegisterComponent implements OnInit {
         }
         this.regForm.reset();
         
-        this.http.post('http://localhost:3000/users', body)
+        this.http.post(this.config.serverUrl + '/users', body)
             .subscribe((res:{ id:string; }) => {
                 this.authCheck.setIdToken(res.id);
             });
