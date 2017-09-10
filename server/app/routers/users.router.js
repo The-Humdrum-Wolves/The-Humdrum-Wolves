@@ -7,17 +7,27 @@ const attachTo = (app, data) => {
     router.post('/', (req, res) => {
         // TODO: Add validation
         // TODO: Move to separate controller
-        const user = {
+        const createUser = {
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
             fullName: req.body.fullName,
             age: req.body.age
         }
+        
+        data.users.create(createUser);
 
-        data.users.create(user);
+        data.users.findByEmail(createUser.email)
+            .then(user => {
+                req.logIn(user, (err) => {
+                    if (err) { 
+                        return new Error('Login error');
+                    }
 
-        res.json({message: "Registration complete"});
+                    req.user = user;
+                    return res.json({ id: req.user._id });
+                });
+            });
     })
     .get('/:id', (req, res) => {
         const id = req.params.id;

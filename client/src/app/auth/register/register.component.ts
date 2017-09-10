@@ -64,6 +64,8 @@ export class RegisterComponent implements OnInit {
             age: this.regForm.controls.age.value            
         }
         this.regForm.reset();
+        //redirect to home
+        //store user id
         return this.http.post('http://localhost:3000/users', body).subscribe(res => console.log(res));
     }
 
