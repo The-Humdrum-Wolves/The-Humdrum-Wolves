@@ -32,9 +32,9 @@ import { AuthGuardService } from './auth/authGuard/auth-guard.service';
   ],
   imports: [
     BrowserModule,
-    ProfileModule,
-    AppRoutingModule,
     AuthModule,
+    ProfileModule,    
+    AppRoutingModule,
     SharedModule,
     Error404Module,
     HttpModule,
@@ -45,7 +45,6 @@ import { AuthGuardService } from './auth/authGuard/auth-guard.service';
     FormsModule
   ],
   providers: [
-    // remove camp service?
     ChampionshipRankingsService, 
     AuthCheckService,
     LogoutService,
