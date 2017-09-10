@@ -106,7 +106,7 @@ export class RegisterComponent implements OnInit {
     }
 
     validateFullName(controls) {
-        const regExp = new RegExp(/^[a-zA-Z]+$/);
+        const regExp = new RegExp(/^[a-zA-Z\s]+$/);
         if(regExp.test(controls.value)) {
             return null;
         } else {
