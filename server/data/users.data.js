@@ -8,8 +8,31 @@ class UserData extends BaseData {
 
     findByUsername(username) {
         const userToLower = username.toLowerCase();
+        const user = this.collection.findOne({ username });
+
+        return new Promise((resolve, reject) => {
+            if (!user) {
+                return reject('No such user was found');
+            }
+            return resolve(user);
+        });
+    }
+
+    findByEmail(email) {
+        const userToLower = email.toLowerCase();
+        const user = this.collection.findOne({ email });
+
+        return new Promise((resolve, reject) => {
+            if (!user) {
+                return reject('No such user was found');
+            }
+            return resolve(user);
+        });
+    }
+
+    findById(id) {
         return this.collection
-            .findOne({ username });
+            .findOne({ id });
     }
 
     checkPassword(username, password) {

@@ -1,5 +1,9 @@
+const { Router } = require('express');
+
 const attachTo = (app, data) => {
-    app.post('/users', (req, res) => {
+    const router = new Router();
+
+    router.post('/', (req, res) => {
         // TODO: Add validation
         // TODO: Move to separate controller
         const user = {
@@ -13,14 +17,15 @@ const attachTo = (app, data) => {
         data.users.create(user);
 
         res.send(`User ${user.username} created successfully`);
-    });
-
-    app.get('/users/:username', (req, res) => {
+    })
+    .get('/:username', (req, res) => {
         const username = req.params.username;
 
         data.users.findByUsername(username)
             .then(user => res.send(user));
     });
+
+    app.use('/users', router);
 };
 
 module.exports = { attachTo };
