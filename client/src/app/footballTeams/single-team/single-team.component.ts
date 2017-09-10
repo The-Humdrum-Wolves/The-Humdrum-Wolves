@@ -1,6 +1,8 @@
+import { SingleTeamFixturesModel } from './../../models/singleTeamFixturesModels/singleTeamFixturesModel';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TopTeamsService } from './../services/teams.service';
 import { Component, OnInit } from '@angular/core';
+
+import { TopTeamsService } from './../services/teams.service';
 
 @Component({
   selector: 'app-single-team',
@@ -8,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-team.component.css']
 })
 export class SingleTeamComponent implements OnInit {
-  teamFixtures;
+  private teamFixtures;
   idFromUrl: number = parseInt(this.route.snapshot.params['id']);
-  foundTeam;
+  private foundTeam;
 
   constructor(private topTeams: TopTeamsService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {

@@ -1,7 +1,9 @@
-import { ChampionshipRankingsService } from "./../home.service";
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ChampionshipRankings } from './../../../models/leagueTablesModel';
-import { Component, OnInit, Inject } from '@angular/core';
+
+import { ChampionshipRankings } from './../../models/leagueTablesModel';
+
+import { ChampionshipRankingsService } from "./../home.service";
 
 @Component({
     selector: 'hw-home-championships',
@@ -10,7 +12,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 
 export class HomeTeamComponent implements OnInit {
-    public championshipRankings: ChampionshipRankings;
+    championshipRankings: ChampionshipRankings[];
     idFromUrl: number = parseInt(this.route.snapshot.params['id']);
     loading: boolean = false;
 

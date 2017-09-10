@@ -1,6 +1,7 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { TopTeamsService } from './../services/teams.service';
 import { Component, OnInit } from '@angular/core';
+
+import { TopTeamsService } from './../services/teams.service';
 
 @Component({
   selector: 'app-teams',
@@ -8,11 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
-
-  
-  teams;
+  private teams;
   loading: boolean = false;
-  
   constructor(private topTeams: TopTeamsService) { }
 
   ngOnInit() {

@@ -1,9 +1,8 @@
-export interface Championships {
+export class HomePageModel {
     id: number;
     caption: string;
-    league: string;
-    year: number;
     currentMatchday: number;
     numberOfTeams: number;
     numberOfGames: number;
+    numberOfMatchdays: number;
 }

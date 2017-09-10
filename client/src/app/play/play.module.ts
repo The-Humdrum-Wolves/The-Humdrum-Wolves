@@ -9,7 +9,9 @@ import { PlayService } from './play.service';
   imports: [
     SharedModule
   ],
-  declarations: [PlayComponent],
+  declarations: [
+    PlayComponent
+  ],
   providers: [
     PlayService
   ]

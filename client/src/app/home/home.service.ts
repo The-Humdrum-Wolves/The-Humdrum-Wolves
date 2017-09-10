@@ -1,11 +1,12 @@
-import { ApiHelpers } from "../../apiHelpers/apiHelpers";
-import { Observable } from 'rxjs/Observable';
-import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
-
+import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { ChampionshipRankings } from "../../models/leagueTablesModel";
 
+import { ChampionshipRankings } from "../models/leagueTablesModel";
+import { HomePageModel } from './../models/homePageModel';
+
+import { ApiHelpers } from "../apiHelpers/apiHelpers";
 
 
 @Injectable()
@@ -14,15 +15,10 @@ import { ChampionshipRankings } from "../../models/leagueTablesModel";
     private competitionUrls;
     private competitionId;
     
-    private headers: Headers = new Headers({
-        'X-Auth-Token': 'ca9d984a4c1e4042b295f4eaa19b122e',
-        'Content-Type': 'text/plain',
-        'X-Response-Control': 'minified'
-    });
+    private headers: Headers = new Headers(ApiHelpers.getHeaders());
 
     constructor(private http: Http) {}
-
-    getAll(): Observable<any> {
+    getAll(): Observable<HomePageModel> {
         this.competitionUrls = ApiHelpers.competitionUrls();
         console.log(this.competitionUrls);
 

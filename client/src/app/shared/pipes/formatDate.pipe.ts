@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment';
 
 @Pipe({
   name: 'formatFixtureDate'
@@ -7,10 +6,10 @@ import * as moment from 'moment';
 export class FormatDatePipe implements PipeTransform {
 
   formatedDate: string;
-  transform(fixtureDate: string) {
-    
-    this.formatedDate = moment(fixtureDate).format('LLLL');
-    
+  transform(fixtureDate: string): string {
+
+    this.formatedDate = new Date(fixtureDate).toLocaleString();
+
     return this.formatedDate;
   }
 
