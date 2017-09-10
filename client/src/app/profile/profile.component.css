@@ -1,0 +1,24 @@
+.form-horizontal{
+    margin: 20px;
+}
+legend{
+    border:none;
+}
+#regBtn{
+    width: 100%;
+}
+#profile{
+    margin-left: 38%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    max-width: 300px;
+}
+#profileHeading {
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+#profileContent {
+    padding: 5px;
+}

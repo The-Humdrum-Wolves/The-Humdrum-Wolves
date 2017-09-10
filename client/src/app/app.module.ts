@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './router/app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AuthModule } from './auth/auth.module';
 import { PlayModule } from './play/play.module';
@@ -38,7 +38,8 @@ import { AuthGuardService } from './auth/authGuard/auth-guard.service';
     HttpModule,
     FootballTeamsModule,
     PlayModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
 
   providers: [

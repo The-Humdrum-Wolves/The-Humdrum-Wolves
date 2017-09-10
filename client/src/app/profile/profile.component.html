@@ -1,1 +1,127 @@
-<p>Username: {{user.username}}</p>
+<div class="card text-center" id="profile">
+    <div class="card-block" id="profileHeading">
+        <h4 class="card-title">Your Profile</h4>
+    </div>
+    <div class="card-block" id="profileContent">        
+        <p class="card-text"><strong>Username:</strong> {{user.username}}</p>
+        <p class="card-text"><strong>Email:</strong> {{user.email}}</p>
+        <p class="card-text"><strong>Full name:</strong> {{user.fullName}}</p>
+        <p class="card-text"><strong>Age:</strong> {{user.age}}</p>    
+    </div>
+</div>
+
+<form (submit)="onChangeUsername()" [formGroup]="usernameForm" class="form-horizontal">
+    <legend class="text-center">
+        <h4><strong>Change Username</strong></h4>
+    </legend>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="username">New Username</label>
+        <div class="col-md-4" [ngClass]="{'has-error': (usernameForm.controls.username.errors && usernameForm.controls.username.dirty),
+            'has-success': !usernameForm.controls.username.errors}">
+            <input class="form-control input-md" type="text" name="username" id="username" formControlName="username"><br>
+            <ul class="help-block">
+                <li *ngIf="usernameForm.controls.username.errors?.required && usernameForm.controls.username.dirty">This field is required</li>
+                <li *ngIf="usernameForm.controls.username.errors?.minlength ||
+                usernameForm.controls.username.errors?.maxlength">Username must be between 3 and 20 characters</li>
+                <li *ngIf="usernameForm.controls.username.errors?.validateUsername && usernameForm.controls.username.dirty">Username must contain only latin characters and numbers</li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="changeUsername"></label>
+        <div class="col-md-4">
+            <button id="changeUsername" name="changeUsername" class="btn btn-success" [disabled]="!usernameForm.valid">Change Username</button>
+        </div>
+    </div>
+</form>
+
+<form (submit)="onChangeEmail()" [formGroup]="emailForm" class="form-horizontal">
+    <legend class="text-center">
+        <h4><strong>Change Email</strong></h4>
+    </legend>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="email">New Email</label>
+        <div class="col-md-4" [ngClass]="{'has-error': (emailForm.controls.email.errors && emailForm.controls.email.dirty),
+            'has-success': !emailForm.controls.email.errors}">
+            <input class="form-control input-md" type="text" name="email" id="email" formControlName="email"><br>
+            <ul class="help-block">
+                <li *ngIf="emailForm.controls.email.errors?.required && emailForm.controls.email.dirty">This field is required</li>
+                <li *ngIf="emailForm.controls.email.errors?.minlength ||
+                emailForm.controls.email.errors?.maxlength">Email must be between 3 and 30 characters</li>
+                <li *ngIf="emailForm.controls.email.errors?.validateEmail && emailForm.controls.email.dirty">Email must be valid</li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="changeEmail"></label>
+        <div class="col-md-4">
+            <button id="changeEmail" name="changeEmail" class="btn btn-success" [disabled]="!emailForm.valid">Change Username</button>
+        </div>
+    </div>
+</form>
+
+<form (submit)="onChangePassowrd()" [formGroup]="passwordForm" class="form-horizontal">
+    <legend class="text-center">
+        <h4><strong>Change Password</strong></h4>
+    </legend>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="password">New Password</label>
+        <div class="col-md-4" [ngClass]="{'has-error': (passwordForm.controls.password.errors && passwordForm.controls.password.dirty),
+            'has-success': !passwordForm.controls.password.errors}">
+            <input class="form-control input-md" type="password" name="password" id="password" formControlName="password"><br>
+            <ul class="help-block">
+                <li *ngIf="passwordForm.controls.password.errors?.required 
+                    && passwordForm.controls.password.dirty">This field is required</li>
+                <li *ngIf="passwordForm.controls.password.errors?.minlength ||
+                passwordForm.controls.password.errors?.maxlength">Password must be between 8 and 30 characters</li>
+                <li *ngIf="passwordForm.controls.password.errors?.validatePassword 
+                    && passwordForm.controls.password.dirty">Password must contain at least one number, lowercase and uppercase latin character</li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="confirm">Confirm Password</label>
+        <div class="col-md-4" [ngClass]="{'has-error': (passwordForm.controls.confirm.errors && passwordForm.controls.confirm.dirty),
+            'has-success': !passwordForm.controls.confirm.errors}">
+            <input class="form-control input-md" type="password" name="confirm" id="confirm" formControlName="confirm"><br>
+            <ul class="help-block">
+                <li *ngIf="passwordForm.controls.confirm.errors?.required 
+                    && passwordForm.controls.confirm.dirty">This field is required</li>
+                <li *ngIf="passwordForm.errors?.matchingPasswords 
+                    && passwordForm.controls.confirm.dirty">Passwords must match</li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="changePassword"></label>
+        <div class="col-md-4">
+            <button id="changePassword" name="changePassword" class="btn btn-success" [disabled]="!passwordForm.valid">Change Password</button>
+        </div>
+    </div>
+</form>
+
+<form (submit)="onChangeFullName()" [formGroup]="fullNameForm" class="form-horizontal">
+    <legend class="text-center">
+        <h4><strong>Change Name</strong></h4>
+    </legend>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="fullName">New Name</label>
+        <div class="col-md-4" [ngClass]="{'has-error': (fullNameForm.controls.fullName.errors && fullNameForm.controls.fullName.dirty),
+            'has-success': !fullNameForm.controls.fullName.errors}">
+            <input class="form-control input-md" type="text" name="fullName" id="fullName" formControlName="fullName"><br>
+            <ul class="help-block">
+                <li *ngIf="fullNameForm.controls.fullName.errors?.required && fullNameForm.controls.fullName.dirty">This field is required</li>
+                <li *ngIf="fullNameForm.controls.fullName.errors?.minlength ||
+                fullNameForm.controls.fullName.errors?.maxlength">Name must be between 3 and 50 characters</li>
+                <li *ngIf="fullNameForm.controls.fullName.errors?.validateFullName 
+                    && fullNameForm.controls.fullName.dirty">Name must contain only latin characters</li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="changeFullName"></label>
+        <div class="col-md-4">
+            <button id="changeFullName" name="changeFullName" class="btn btn-success" [disabled]="!fullNameForm.valid">Change Name</button>
+        </div>
+    </div>
+</form>

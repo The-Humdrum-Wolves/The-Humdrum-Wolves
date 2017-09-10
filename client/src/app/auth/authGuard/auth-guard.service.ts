@@ -4,9 +4,11 @@ import { AuthCheckService } from '../authCheck/auth-check.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-    constructor(private authCheck: AuthCheckService) {}
+    constructor(
+      private authCheck: AuthCheckService
+    ) {}
 
-  canActivate() {
+  canActivate() { 
     return this.authCheck.isAuthenticated();
   }
 }
