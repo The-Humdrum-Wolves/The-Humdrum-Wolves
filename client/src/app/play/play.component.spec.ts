@@ -46,7 +46,7 @@
 //     loading="loading";
 
 //     // service = {
-//     //     getAdvertisementsList: () => {
+//     //     getAllFixtures: () => {
 //     //       return Observable.of(collection);
 //     //     }
 //     //   };
@@ -76,7 +76,7 @@
 //     spyOn(service, 'getAllFixtures');
 //     component.ngOnInit();
 //     component.ngOnInit();
-//     expect(service.getAdvertisementsList).toHaveBeenCalledTimes(2);
+//     expect(service.getAllFixtures).toHaveBeenCalledTimes(2);
 //   });
 
 //   it('ngOnInit() should call getAllFixtures once with correct parameters', () => {
