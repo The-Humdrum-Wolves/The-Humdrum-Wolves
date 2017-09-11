@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 
 const init = (data) => {
     const app = express();
@@ -16,6 +17,10 @@ const init = (data) => {
 
     // add routers
     require('./routers').attachTo(app, data);
+
+    app.get('/*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/dist/index.html'));
+    });
 
     return Promise.resolve(app);
 };
