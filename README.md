@@ -74,8 +74,8 @@ This application is based on the following technologies:
 
 ## Authors
 
-* **Petur Yerjabek (http://telerikacademy.com/Users/Xenoleth)**
-* **Petur Bochukov (http://telerikacademy.com/Users/Aimanan)**
+* **Petar Yerzhabek (http://telerikacademy.com/Users/Xenoleth)**
+* **Petar Bochukov (http://telerikacademy.com/Users/Aimanan)**
 * **Martina Shebova (http://telerikacademy.com/Users/Martina_Shebova)**
 
 ## License
